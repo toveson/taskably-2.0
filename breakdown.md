@@ -56,7 +56,7 @@
             * View customer feedback
 
 ## Chat-features
-    * Use sockets
+    * Use socket.io
         * mananger-to-tech
         * customer-to-tech
         * group chat for Admin, all Managers, All techs (for a given area)
