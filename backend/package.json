@@ -19,5 +19,9 @@
   "homepage": "https://github.com/ReddPhoenix/taskably-2.0#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.15.0"
   }
 }
