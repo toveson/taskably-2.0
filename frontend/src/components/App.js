@@ -4,6 +4,7 @@ import './App.css';
 
 // Route components
 import Login from './Login/Login';
+import Dashboard from './Dashboard/Dashboard.jsx';
 
 class App extends Component {
     render() {
@@ -11,6 +12,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route exact path='/' component={Login} />
+                    <Route path='/dashboard' component={Dashboard} />
                 </div>
             </BrowserRouter>
         );
