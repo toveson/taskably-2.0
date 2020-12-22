@@ -4,6 +4,9 @@ import DashboardPending from './DashboardPending';
 import DashboardTotal from './DashboardTotal';
 import DashboardDate from './DashboardDate';
 import DashboardCompleted from './DashboardCompleted';
+import DashboardCalls from './DashboardCalls';
+import DashboardInventory from './DashboardInventory';
+import DashboardTechnicians from './DashboardTechnicians';
 
 class Dashboard extends Component {
     render() {
@@ -54,182 +57,18 @@ class Dashboard extends Component {
                         <DashboardCompleted />
                     </div>
 
-                    {/* {{!-- Type of Orders tile --}} */}
+                    {/* {{!-- Type of Calls tile --}} */}
                     <div className="column is-12-tablet is-6-desktop is-4-fullhd">
-                        <div className="card">
-                            <div className="card-content">
-                                <h2 className="title is-4">Calls</h2>
-
-                                <div className="level">
-                                    <div className="level-left">
-                                        <div>
-                                            <p className="title is-5 is-marginless">
-                                                New Installs
-                                            </p>
-                                            <small>
-
-                                            </small>
-                                        </div>
-                                    </div>
-
-                                    <div className="level-right">
-                                        <div className="has-text-right">
-                                            <p className="tag is-success is-5 is-marginless is-large has-text-weight-bold">
-                                                {/* {{ countWoN }} */}
-                                                 countWoN
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="level">
-                                    <div className="level-left">
-                                        <div>
-                                            <p className="title is-5 is-marginless">
-                                                Service Calls
-                                            </p>
-                                            <small>
-
-                                            </small>
-                                        </div>
-                                    </div>
-                                    <div className="level-right">
-                                        <div className="has-text-right">
-                                            <p className="tag is-warning is-5 is-marginless is-large has-text-weight-bold">
-                                                {/* {{ countWoS }} */}
-                                                countWoS
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="level">
-                                    <div className="level-left">
-                                        <div>
-                                            <p className="title is-5 is-marginless ">
-                                                Trouble Calls
-                                            </p>
-                                            <small>
-
-                                            </small>
-                                        </div>
-                                    </div>
-                                    <div className="level-right">
-                                        <div className="has-text-right">
-                                            <p className="tag is-danger is-5 is-marginless is-large has-text-weight-bold">
-                                                {/* {{ countWoT }} */}
-                                                countWoT
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <a className="button is-link is-outlined" href="orders">View all orders</a>
-
-                            </div>
-                        </div>
+                        <DashboardCalls />
                     </div>
 
                     {/* Inventory Tile */}
                     <div className="column is-12-tablet is-6-desktop is-4-fullhd">
-                        <div className="card">
-                            <div className="card-content">
-                                <h2 className=" title is-4">Inventory</h2>
-
-                                <div className="media">
-                                    <div media-left is-marginless>
-                                        <p className="number">1</p>
-                                    </div>
-                                    <div className="media-left">
-                                        <img src='/assets/images/directv-logo.png' alt="Direct TV Logo" width="80" />
-                                    </div>
-                                    <div className="media-content">
-                                        <p className="title is-5 is-spaced is-marginless">
-                                            DirecTv
-                                        </p>
-                                    </div>
-                                    <div className="media-right">
-                                        202 sold
-                                    </div>
-                                </div>
-
-                                <div className="media">
-                                    <div className="media-left is-marginless">
-                                        <p className="number">2</p>
-                                    </div>
-                                    <div className="media-left">
-                                        <img src='/assets/images/KFB-Logo.png' alt="Amazon Key for Business" width="80" />
-                                    </div>
-                                    <div className="media-content">
-                                        <p className="title is-5 is-spaced is-marginless">
-                                            KfB
-                                        </p>
-                                    </div>
-                                    <div className="media-right">
-                                        24 sold
-                                    </div>
-                                </div>
-
-                                <div className="media">
-                                    <div className="media-left is-marginless">
-                                        <p className="number">3</p>
-                                    </div>
-                                    <div className="media-left">
-                                        <img src='/assets/images/orby-logo.png' alt="Orby TV Logo" width="80" />
-                                    </div>
-                                    <div className="media-content">
-                                        <p className="title is-5 is-spaced is-marginless">
-                                            Orby TV
-                                        </p>
-                                    </div>
-                                    <div className="media-right">
-                                        4 sold
-                                    </div>
-                                </div>
-
-                                <a className="button is-link is-outlined" href="inventory">View all inventory</a>
-                            </div>
-                        </div>
+                        <DashboardInventory />
                     </div>
 
                     <div className="column is-12-tablet is-6-desktop is-4-fullhd">
-                        <div className="card">
-                            <div className="card-content">
-                                <h2 className="title is-4">Technicians</h2>
-
-                                {/* {{#each techs}} */}
-                    #each techs
-                                <div className="media">
-                                    <div className="media-left is-marginless">
-                                        <p className="number">
-                                            {/* {{ id }} */}
-                                            id
-                                        </p>
-                                    </div>
-                                    <div className="media-content">
-                                        <p className="title is-5 is-spaced is-marginless">
-                                            {/* {{ first_name }} {{ last_name }} */}
-                                            first_name last_name
-                                        </p>
-                                        <p className="subtitle is-6">
-                                            {/* {{ phone }} */}
-                                            phone
-                                        </p>
-                                    </div>
-
-                                    {/* {{!-- Disabled for future deployment --}} */}
-                                    {/* {{!-- <div className="media-right">
-                            10 orders
-                        </div> --}} */}
-                                </div>
-                                {/* {{/each}} */}
-                    /each
-
-                                <a className="button is-link is-outlined" href="techs">View all technicians</a>
-
-                            </div>
-                        </div>
+                        <DashboardTechnicians />
                     </div>
                 </div>
             </div>
