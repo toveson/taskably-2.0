@@ -10,7 +10,7 @@ class DashboardTechnicians extends Component {
                         <h2 className="title is-4">Technicians</h2>
 
                         {/* {{#each techs}} */}
-                                  #each techs
+
                         <div className="media">
                             <div className="media-left is-marginless">
                                 <p className="number">
@@ -35,7 +35,7 @@ class DashboardTechnicians extends Component {
                         </div> --}} */}
                         </div>
                         {/* {{/each}} */}
-                                 /each
+
 
                         <a className="button is-link is-outlined" href="techs">View all technicians</a>
 
