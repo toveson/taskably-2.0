@@ -36,7 +36,7 @@ app.get('/getmanager', (req, res) => {
             throw err;
         }
         console.log(results);
-        res.send('Get Manager Successful');
+        res.send(results);
     });
 });
 
@@ -47,40 +47,18 @@ app.get('/getcountWO', (req, res) => {
             throw err;
         }
         console.log(results);
-        res.send('Get countWO Successful');
+        res.send(results);
     });
 });
 
-app.get('/getcountWoP', (req, res) => {
-    let sql = 'SELECT * FROM v_countWoP';
+app.get('/getcountRsn', (req, res) => {
+    let sql = 'SELECT * FROM v_countRsn';
     let query = db.query(sql, (err, results) => {
         if (err) {
             throw err;
         }
         console.log(results);
-        res.send('Get countWoP Successful');
-    });
-});
-
-app.get('/getcountWoA', (req, res) => {
-    let sql = 'SELECT * FROM v_countWoA';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send('Get countWoA Successful');
-    });
-});
-
-app.get('/getcountWoC', (req, res) => {
-    let sql = 'SELECT * FROM v_countWoC';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send('Get countWoC Successful');
+        res.send(results);
     });
 });
 
