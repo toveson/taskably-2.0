@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
 } else {
     db = mysql.createConnection({
         host: process.env.host,
-        port: process.env.port,
+        dbport: process.env.port,
         user: process.env.user,
         password: process.env.password,
         database: process.env.database
