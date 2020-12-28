@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 require('dotenv').config();
 
 let db;
@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
 } else {
     db = mysql.createConnection({
         host: process.env.host,
-        dbport: process.env.port,
+        port: process.env.dbport,
         user: process.env.user,
         password: process.env.password,
         database: process.env.database
