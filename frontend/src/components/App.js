@@ -8,6 +8,7 @@ import Dashboard from './Dashboard/Dashboard.jsx';
 import Inventory from './Inventory/Inventory';
 import Techs from './Techs/Techs';
 import Customers from './Customers/Customers';
+import Orders from './Orders/Orders';
 
 class App extends Component {
     render() {
@@ -19,6 +20,7 @@ class App extends Component {
                     <Route path='/inventory' component={Inventory} />
                     <Route path='/customers' component={Customers} />
                     <Route path='/techs' component={Techs} />
+                    <Route path='/orders' component={Orders} />
                 </div>
             </BrowserRouter>
         );
