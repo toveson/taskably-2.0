@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 // Dependencies
 const express = require('express');
 const app = express();
 
-let db = require('./config/connection.js');
-const routes = require('./routes/index.js')
-console.log('routes:', routes)
+// let db = require('./config/connection.js');
+const routes = require('./routes/index.js');
+console.log('routes:', routes);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
