@@ -9,6 +9,7 @@ import Inventory from './Inventory/Inventory';
 import Techs from './Techs/Techs';
 import Customers from './Customers/Customers';
 import Orders from './Orders/Orders';
+import NewCustomer from './New-Customer/NewCustomer';
 
 class App extends Component {
     render() {
@@ -19,6 +20,7 @@ class App extends Component {
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/inventory' component={Inventory} />
                     <Route path='/customers' component={Customers} />
+                    <Route path='/new-customer' component={NewCustomer} />
                     <Route path='/techs' component={Techs} />
                     <Route path='/orders' component={Orders} />
                 </div>
