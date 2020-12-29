@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import CustomersIcon from '../../assets/customers-icon.png';
+import TechsIcon4 from '../../assets/techs-icon4.png';
 
+const inlineStyle = {
+    fontSize: 25
+};
 class Menu extends Component {
     render() {
         return (
@@ -30,20 +35,24 @@ class Menu extends Component {
                         {/* {{!-- Customers menu link --}} */}
                         <li>
                             <a href="customers">
-                                <span className="icon">
-                                    <i className="fa fa-address-book"></i>
+                                <span className="icon is-small">
+                                    {/* <i className="fa fa-address-book"></i> */}
+                                    <img src={CustomersIcon} />
+                                    {/* <i src={CustomersIcon}></i> */}
                                 </span>
                             Customers
                             </a>
                         </li>
                         {/* {{!-- Technicians menu link --}} */}
                         <li>
-                            <a href="techs">
-                                <span className="icon">
-                                    {/* <i className="fas fa-hard-hat"></i> */}
-                                    <i className="fa fa-hard-hat"></i>
+                            <a href="techs" >
+                                <span className="icon is-smaller">
+                                    <img src={TechsIcon4} />
+                                    {/* <i className="fa fa-hard-hat"></i> */}
                                 </span>
-                            Technicians
+                                <span style={inlineStyle}>
+                                    Technicians
+                                </span>
                             </a>
                         </li>
                         {/* {{!-- Orders menu link --}} */}
