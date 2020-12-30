@@ -1,64 +1,19 @@
-/* eslint-disable no-unused-vars */
 // Dependencies
 const express = require('express');
 const app = express();
+require('dotenv').config();
 
-let db = require('./config/connection.js');
+// let db = require('./config/connection.js');
+const routes = require('./routes/index.js');
+// console.log('routes:', routes);
 
-app.get('/', (req, res) => {
-    let sql = 'SELECT * FROM v_manager';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send(results);
-    });
-});
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get('/getcountWO', (req, res) => {
-    let sql = 'SELECT * FROM v_countWO';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send(results);
-    });
-});
-
-app.get('/getcountRsn', (req, res) => {
-    let sql = 'SELECT * FROM v_countRsn';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send(results);
-    });
-});
-
-app.get('/getinventory', (req, res) => {
-    let sql = 'SELECT * FROM v_inventory';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send(results);
-    });
-});
-
-app.get('/getusers', (req, res) => {
-    let sql = 'SELECT * FROM v_users';
-    let query = db.query(sql, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        console.log(results);
-        res.send(results);
-    });
-});
+app.use('/api/customers', routes.customers);
+app.use('/api/stats', routes.stats);
+app.use('/api/techs', routes.techs);
+app.use('/api/inventory', routes.inventory);
 
 //  setting up server
 const PORT = process.env.PORT || 8081;
