@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-require('dotenv').config();
+// require('dotenv').config();
 
 let db;
 
@@ -12,7 +12,8 @@ if (process.env.JAWSDB_URL) {
         port: process.env.dbport,
         user: process.env.user,
         password: process.env.password,
-        database: process.env.database
+        database: process.env.database,
+        multipleStatements: true
     });
 }
 db.connect((err) => {
