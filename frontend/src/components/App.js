@@ -16,7 +16,7 @@ class App extends Component {
     render() {
         console.log('this.props: ', this.props);
 
-        API.getCustomers().then(response => {
+        API.getStatsWO().then(response => {
             console.log('response:', response);
         });
 
