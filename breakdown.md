@@ -21,12 +21,12 @@
         * Update tech info (ex phone number)
     * CRUD Customer
         * create new customer
-        * update customer info (produts being installed)
+        * update customer info (products being installed)
     * CRUD workorder
         * Create new workorders
         * Assigned workorders to techs/manager
         * Close workorder
-        * workorder status (open, in progress, completed, cancled)
+        * workorder status (open, in progress, completed, canceled)
     * CRUD Inventory
         * Add new inventory
         * Assign inventory to a tech
@@ -57,7 +57,7 @@
 
 ## Chat-features
     * Use socket.io
-        * mananger-to-tech
+        * manager-to-tech
         * customer-to-tech
         * group chat for Admin, all Managers, All techs (for a given area)
         * possibly make chat searchable
@@ -77,7 +77,7 @@
 
 ## PWA?
     * webmanifest
-    * Serviceworker
+    * Service worker
 
 ## Payroll?
     * user can only see their own payroll
@@ -88,4 +88,9 @@
     * total installs
     * completed
     * in progress
-    * cancled
+    * canceled
+
+
+## Tech to Add
+    * concurrently
+        * run both server.js and react with one command
