@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
-const cors = require('cors');
+// coclearnst cors = require('cors');
 const authUser = require('./config/auth.config.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -16,7 +16,6 @@ app.use(express.json());
 
 let tempdb = [];
 
-
 // login route
 app.post('/login', (req, res) => {
     let username = req.body.username;
@@ -26,35 +25,35 @@ app.post('/login', (req, res) => {
     res.json(tempdb);
 
     // search db for username
-        // if username is there then compare
-        // no user name return login failed
-    
-    
-        // compare password (bcrypt)
-            // if password is correct sign jws token with (username, role) and send it back
-            // if password is wrong return login failed
+    // if username is there then compare
+    // no user name return login failed
+
+
+    // compare password (bcrypt)
+    // if password is correct sign jws token with (username, role) and send it back
+    // if password is wrong return login failed
 });
 
 
 
-app.post('/newuser', (req,res) => {
+app.post('/newuser', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
 
     // hashing password
-    bcrypt.hash(password, saltRounds, function(err, hash) {
+    bcrypt.hash(password, saltRounds, function (err, hash) {
         // Store hash in your password DB.
         let user = {
             username,
             password: hash
         };
-        
-        
-        
-        
+
+
+
+
         tempdb.push(user);
         console.log(username, password);
-        
+
         console.log('hit new user');
         res.end();
     });
@@ -67,9 +66,9 @@ app.post('/newuser', (req,res) => {
 
 
 //testing sensitive info
-app.get('/test', authUser.userGood, (req, res) => {
+app.get('/test', (req, res) => {
     let stuff = 'real password';
-    
+
     res.send(stuff);
 });
 
