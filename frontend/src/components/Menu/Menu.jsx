@@ -74,7 +74,7 @@ class Menu extends Component {
                                     {/* <i className='fa fa-clipboard-list'></i> */}
                                 </span>
                                 <span className='menuLink' style={inlineStyle}>
-                                    Orders
+                                    Work Orders
                                 </span>
                             </a>
                         </li>

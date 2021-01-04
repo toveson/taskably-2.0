@@ -13,12 +13,12 @@ class Orders extends Component {
                         <Menu />
 
                         <div className="column">
-                            <h1 className="title" id='orders-H1'>Orders</h1>
+                            <h1 className="title" id='orders-H1'>Work Orders</h1>
 
                             <nav className="level">
                                 <div className="level-left">
                                     <div className="level-item">
-                                        <p className="subtitle is-5" id='Orders-orders'><strong id='Orders-count'> countWO</strong> orders</p>
+                                        <p className="subtitle is-5" id='Orders-orders'><strong id='Orders-count'> countWO</strong> Total </p>
                                     </div>
                                     <div className="level-item is-hidden-tablet-only">
                                         {/* {{!-- Disabled for future deployment --}} */}
