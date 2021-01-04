@@ -24,13 +24,13 @@ class DashboardTotal extends Component {
         return (
 
             <div>
-                <p>DashboardTotal</p>
+                {/* DashboardTotal */}
 
                 <div className="notification is-link has-text countWO">
                     <p className="title is-1">{this.state.countWO}</p>
                     {/* <p className="title is-1">countWO</p> */}
 
-                    <p className="subtitle is-4">Total Workorders</p>
+                    <p className="subtitle is-4">Total Work Orders</p>
                 </div>
             </div>
         );
