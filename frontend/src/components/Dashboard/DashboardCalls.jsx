@@ -4,10 +4,10 @@ class DashboardCalls extends Component {
     render() {
         return (
             <div>
-                <p>DashboardCalls</p>
+                {/* DashboardCalls */}
                 <div className="card">
-                    <div className="card-content">
-                        <h2 className="title is-4">Calls</h2>
+                    <div className="card-content cardDashboard">
+                        <h2 className="title is-4"><u>Calls</u></h2>
 
                         <div className="level">
                             <div className="level-left">
@@ -74,7 +74,7 @@ class DashboardCalls extends Component {
                             </div>
                         </div>
 
-                        <a className="button is-link is-outlined" href="orders">View all orders</a>
+                        <a className="button is-link is-outlined" id='buttonDashboard' href="orders">View all orders</a>
 
                     </div>
                 </div>

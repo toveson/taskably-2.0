@@ -5,7 +5,7 @@ class DashboardAssigned extends Component {
         return (
             <div>
                 <p>DashboardAssigned</p>
-                <div className="notification is-primary has-text">
+                <div className="notification is-primary has-text countWOA">
                     {/* <p className="title is-1">{{ countWoA }}</p> */}
                     <p className="title is-1">countWoA</p>
                     <p className="subtitle is-4">Assigned Workorders</p>

@@ -5,7 +5,7 @@ class DashboardPending extends Component {
         return (
             <div>
                 <p>DashboardPending</p>
-                <div className='notification is-info has-text'>
+                <div className='notification is-info has-text countWOP'>
                     {/* <p className='title is-1'>{{countWoP}}</p> */}
                     <p className='title is-1'>countWoP</p>
                     <p className='subtitle is-4'>Pending Workorders</p>

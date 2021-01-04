@@ -13,14 +13,14 @@ class Customers extends Component {
                         <Menu />
 
                         <div className="column">
-                            <h1 className="title">Customers</h1>
+                            <h1 className="title" id='customers-H1'>Customers</h1>
 
 
                             <nav className="level">
                                 <div className="level-left">
 
                                     <p className="level-item">
-                                        <a className="button is-success is-focus" href="new-customer">
+                                        <a className="button is-success is-focus" id='buttonCustomerCreate' href="new-customer">
                                             <span className='icon is-small'>
                                                 <i className="fas fa-user-edit"> </i>
                                             </span>

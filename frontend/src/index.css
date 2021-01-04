@@ -2,4 +2,121 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+    min-height: 100vh;
+}
+
+
+/* ==Navbar Begin== */
+.navbar {
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 50%, #000000 75%);
+}
+
+/* ==Navbar End== */
+
+
+/* ==MenuLinks Begin== */
+.menuLink {
+    color: chartreuse;
+    text-decoration-thickness: 15px;
+    padding: -5 0 0 10;
+}
+
+/* ==MenuLinks End== */
+
+
+/* ==Dashboard Begin== */
+
+.countWO {
+    background: linear-gradient(to bottom right, #0066eb 0%, #8a9dff 100%);
+}
+
+.countWOP {
+    background-image: linear-gradient(to bottom right, #20a4f3 0%, #182b3a 100%);
+}
+
+.countWOA {
+    background: linear-gradient(to bottom right, #d463bc 78%, #023329 100%);
+}
+
+.countWOC {
+    background: linear-gradient(to bottom right, #3af150 15%, #056854 95%);
+}
+
+.cardDashboard {
+    background-color: #000000c2;
+    background-image: linear-gradient(360deg, #4b4949 0%, #a3a0a0 10%);
+}
+
+#buttonDashboard {
+    background-color: #57f169e3;
+    font-weight: 600;
+    border-width: 0px;
+}
+
+/* ==Dashboard End== */
+
+
+/* ==Inventory Begin== */
+
+#inventory-H1 {
+    color: rgb(233, 230, 230);
+}
+
+#inventoryItems {
+    color: darkgray;
+}
+
+#inventoryItemsCount {
+    color:rgb(212, 209, 209)
+}
+
+.box {
+    background-color: #000000c2;
+    background-image: linear-gradient(360deg, #4b4949 0%, #a3a0a0 10%);
+}
+
+/* ==Inventory Ends== */
+
+
+/* ==Customers Begins== */
+.table {
+    border-radius: 5px;
+    background-color: #000000c2;
+    background-image: linear-gradient(360deg, #4b4949 0%, #a3a0a0 5%);
+}
+
+#customers-H1 {
+    color: rgb(233, 230, 230);
+}
+
+#buttonCustomerCreate {
+    background-color: #57f169e3;
+    font-weight: 600;
+    border-width: 0px;
+}
+/* ==Customer Ends== */
+
+
+/* ==Technicians Begins== */
+#technicians-H1 {
+    color: rgb(233, 230, 230);   
+}
+
+/* ==Technicians Ends== */
+
+
+/* ==Orders Begins== */
+#orders-H1 {
+    color: rgb(233, 230, 230);  
+}
+
+#Orders-orders {
+    color: darkgray;
+}
+
+#Orders-count {
+    color:rgb(212, 209, 209)
 }
