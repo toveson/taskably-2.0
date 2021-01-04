@@ -4,10 +4,10 @@ class DashboardTechnicians extends Component {
     render() {
         return (
             <div>
-                <p>DashboardTechnicians</p>
+                {/* DashboardTechnicians */}
                 <div className="card">
-                    <div className="card-content">
-                        <h2 className="title is-4">Technicians</h2>
+                    <div className="card-content cardDashboard">
+                        <h2 className="title is-4"><u>Technicians</u></h2>
 
                         {/* {{#each techs}} */}
 
@@ -37,7 +37,7 @@ class DashboardTechnicians extends Component {
                         {/* {{/each}} */}
 
 
-                        <a className="button is-link is-outlined" href="techs">View all technicians</a>
+                        <a className="button is-link is-outlined" id='buttonDashboard' href="techs">View all technicians</a>
 
                     </div>
                 </div>

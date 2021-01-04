@@ -5,7 +5,7 @@ class DashboardCompleted extends Component {
         return (
             <div>
                 <p>DashboardCompleted</p>
-                <div className='notification is-success has-text'>
+                <div className='notification is-success has-text countWOC'>
                     {/* <p className='title is-1'>{{ countWoC }}</p> */}
                     <p className='title is-1'>countWoC</p>
                     <p className='subtitle is-4'>Completed Workorders</p>

@@ -9,11 +9,12 @@ import DashboardInventory from './DashboardInventory';
 import DashboardTechnicians from './DashboardTechnicians';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
+import '../../index.css';
 
 class Dashboard extends Component {
     render() {
         return (
-            <div>
+            <div className='d shine'>
                 <Navbar />
                 <section className="section">
                     <div className="columns">
