@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
-
+import API from '../../util/api';
 
 class Customers extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
+    componentDidMount() {
+        API.getCustomers().then(response => {
+            console.log('response:', response.data);
+            this.setState({ data: response.data });
+        });
+    }
+
+
     render() {
         return (
             <div>
@@ -72,26 +86,24 @@ class Customers extends Component {
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <strong>
-                                                        {/* <p>{{ first_name }} {{ last_name }}</p> */}
-                                                        <p>first_name last_name</p>
-                                                    </strong>
-                                                </td>
-                                                <td><code>email</code></td>
-                                                <td>address</td>
-                                                <td>city</td>
-                                                <td>state</td>
-                                                <td>
-                                                    <div className="buttons">
-                                                        phone
-                                                        {/* {{!-- Disabled for future deployment --}} */}
-                                                        {/* {{!-- < a href="edit-customer.html" className="button is-small">Edit</a>
-                                    <a className="button is-small">Delete</a> --}} */}
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            {this.state.data.map(custData => (
+                                                <tr key={custData} value={this.state.value}>
+                                                    <td>
+                                                        <strong>
+                                                            <p>{custData.customer}</p>
+                                                        </strong>
+                                                    </td>
+                                                    <td><code>{custData.email}</code></td>
+                                                    <td>{custData.address}</td>
+                                                    <td>{custData.city}</td>
+                                                    <td>{custData.state}</td>
+                                                    <td>
+                                                        <div className="button">
+                                                            {custData.phone}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
                                         </tbody>
                                     </table>
 
