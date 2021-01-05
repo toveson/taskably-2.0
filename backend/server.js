@@ -17,9 +17,6 @@ const routes = require('./routes/index.js');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
-
 io.on('connection', function (socket) {
     socket.emit('hello');
 });
