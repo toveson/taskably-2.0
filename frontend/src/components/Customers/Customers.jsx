@@ -7,13 +7,13 @@ class Customers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            customers: []
         };
     }
     componentDidMount() {
         API.getCustomers().then(response => {
-            console.log('response:', response.data);
-            this.setState({ data: response.data });
+            // console.log('customers:', response.data);
+            this.setState({ customers: response.data });
         });
     }
 
@@ -86,8 +86,8 @@ class Customers extends Component {
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            {this.state.data.map(custData => (
-                                                <tr key={custData} value={this.state.value}>
+                                            {this.state.customers.map(custData => (
+                                                <tr key={custData.cust_id}>
                                                     <td>
                                                         <strong>
                                                             <p>{custData.customer}</p>
