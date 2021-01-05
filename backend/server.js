@@ -17,16 +17,16 @@ const routes = require('./routes/index.js');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
+
+
+
+
+
 io.on('connection', function (socket) {
     socket.emit('hello');
 });
-
-
-
-
-
-
-
 app.use('/api/customers', routes.customers);
 app.use('/api/stats', routes.stats);
 app.use('/api/techs', routes.techs);
