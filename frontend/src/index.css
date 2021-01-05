@@ -7,6 +7,22 @@ body {
     min-height: 100vh;
 }
 
+/* ==Login Begin== */
+#login-form {
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 50%, #000000 75%);
+    color: rgb(233, 230, 230);
+}
+
+#login-button {
+    color: rgb(233, 230, 230);
+    background-color: #57f169e3;
+    font-weight: 600;
+    border-width: 0px;
+}
+
+/* ==Login End== */
+
 
 /* ==Navbar Begin== */
 .navbar {
