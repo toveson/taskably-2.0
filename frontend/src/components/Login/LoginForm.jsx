@@ -4,13 +4,13 @@ import Logo from './../../assets/taskably.png';
 class LoginForm extends Component {
     render() {
         return (
-            <form className='box'>
+            <form className='box' id='login-form'>
                 <div className='field has-text-centered'>
                     <img src={Logo} alt="taskably company logo" width='167'/>
                 </div>
 
                 <div className='field'>
-                    <label className='label'>Email</label>
+                    <label className='label' id='login-form'>Email</label>
                     <div className='control has-icons-left'>
                         <input className='input' type='email' placeholder='example@email.com' required />
                         <span className='icon is-small is-left'>
@@ -20,7 +20,7 @@ class LoginForm extends Component {
                 </div>
 
                 <div className='field'>
-                    <label className='label'>Password</label>
+                    <label className='label' id='login-form'>Password</label>
                     <div className='control has-icons-left'>
                         <input className='input' type='password' placeholder='*********' required />
                         <span className='icon is-small is-left'>
@@ -37,7 +37,7 @@ class LoginForm extends Component {
                 </div>
 
                 <div className='field'>
-                    <button className='button is-success is-dark' type='submit'>
+                    <button className='button is-success is-dark' type='submit' id='login-button'>
                         Login
                     </button>
                 </div>
