@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+// import API from '../../util/api.js';
+import PropTypes from 'prop-types';
 
 class DashboardCalls extends Component {
     render() {
+        // console.log('rsn: ', this.props.rsn);
+        const rsn = this.props.rsn;
+        // console.log('rsn: ', rsn);
         return (
             <div>
                 {/* DashboardCalls */}
@@ -24,8 +29,8 @@ class DashboardCalls extends Component {
                             <div className="level-right">
                                 <div className="has-text-right">
                                     <p className="tag is-success is-5 is-marginless is-large has-text-weight-bold">
-                                        {/* {{ countWoN }} */}
-                                                 countWoN
+                                        {rsn[0].count}
+                                        {/* countWoN */}
                                     </p>
 
                                 </div>
@@ -46,8 +51,8 @@ class DashboardCalls extends Component {
                             <div className="level-right">
                                 <div className="has-text-right">
                                     <p className="tag is-warning is-5 is-marginless is-large has-text-weight-bold">
-                                        {/* {{ countWoS }} */}
-                                                countWoS
+                                        {rsn[1].count}
+                                        {/* countWoS */}
                                     </p>
                                 </div>
                             </div>
@@ -67,8 +72,8 @@ class DashboardCalls extends Component {
                             <div className="level-right">
                                 <div className="has-text-right">
                                     <p className="tag is-danger is-5 is-marginless is-large has-text-weight-bold">
-                                        {/* {{ countWoT }} */}
-                                                countWoT
+                                        {rsn[2].count}
+                                        {/* countWoT */}
                                     </p>
                                 </div>
                             </div>
@@ -82,5 +87,7 @@ class DashboardCalls extends Component {
         );
     }
 }
+
+DashboardCalls.propTypes = { rsn: PropTypes.any };
 
 export default DashboardCalls;
