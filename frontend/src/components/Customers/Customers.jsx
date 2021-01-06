@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
+// import { useState, useEffect } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import API from '../../util/api';
+// import Pagination from '../Pagination/Pagination';
+
+
+
 
 class Customers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customers: []
+            customers: [],
+            currentPage: 1,
+            customersPerPage: 20
         };
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick(event) {
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+    }
+
     componentDidMount() {
         API.getCustomers().then(response => {
             // console.log('customers:', response.data);
@@ -19,6 +34,37 @@ class Customers extends Component {
 
 
     render() {
+        const { customers, currentPage, customersPerPage } = this.state;
+
+        // Logic for displaying current customers
+        const indexOfLastCustomer = currentPage * customersPerPage;
+        const indexOfFirstCustomer = indexOfLastCustomer - customersPerPage;
+        const currentCustomers = customers.slice(indexOfFirstCustomer, indexOfLastCustomer);
+
+        // const renderCustomers = currentCustomers.map((customers, index) => {
+        //     return <li key={customers.cust_id} >{customer}</li>;
+        // });
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(customers.length / customersPerPage); i++) {
+            pageNumbers.push(i);
+        }
+
+        const renderPageNumbers = pageNumbers.map(number => {
+            return (
+                <li
+                    key={number}
+                    id={number}
+                    onClick={this.handleClick}
+                >
+                    {number}
+                </li>
+            );
+        });
+
+
+
         return (
             <div>
                 <Navbar />
@@ -32,7 +78,6 @@ class Customers extends Component {
 
                             <nav className="level">
                                 <div className="level-left">
-
                                     <p className="level-item">
                                         <a className="button is-success is-focus" id='buttonCustomerCreate' href="new-customer">
                                             <span className='icon is-small'>
@@ -41,26 +86,7 @@ class Customers extends Component {
                                             <span>Create New Customer</span>
                                         </a>
                                     </p>
-
-                                    {/* {{!-- Disabled for future deployment --}} */}
-                                    {/* {{!-- < div className="level-item is-hidden-tablet-only">
-            <div className="field has-addons">
-                                    <p className="control">
-                                        <input type="text" className="input" placeholder="Name, email...">
-                </p>
-                                        <p className="control">
-                                            <button className="button">Search</button>
-                                        </p>
-            </div>
-                                </div> --}} */}
                                 </div>
-
-                                {/* {{!-- Disabled for future deployment --}} */}
-                                {/* {{!-- < div className="level-right">
-        <p className="level-item"><strong>All</strong></p>
-                            <p className="level-item"><a>With orders</a></p>
-                            <p className="level-item"><a>Without orders</a></p>
-    </div> --}} */}
                             </nav>
                             <div>
                                 <div className="table-container">
@@ -107,20 +133,11 @@ class Customers extends Component {
                                         </tbody>
                                     </table>
 
-                                    {/* {{!-- Disabled for future deployment --}} */}
-                                    {/* {{!-- < nav className="pagination">
-                <a className="pagination-previous">Previous</a>
-                <a className="pagination-next">Next</a>
-                <ul className="pagination-list">
-                    <li><a className="pagination-link is-current">1</a></li>
-                    <li><span className="pagination-ellipsis">&hellip;</span></li>
-                    <li><a className="pagination-link">45</a></li>
-                    <li><a className="pagination-link">46</a></li>
-                    <li><a className="pagination-link">47 </a></li>
-                    <li><span className="pagination-ellipsis">&hellip;</span></li>
-                    <li><a className="pagination-link">86</a></li>
-                </ul>
-    </nav> --}} */}
+                                    <div>
+                                        <ul id='page-numbers'>
+                                            {renderPageNumbers}
+                                        </ul>
+                                    </div>
                                 </div >
                             </div >
                         </div >
