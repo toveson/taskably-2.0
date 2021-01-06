@@ -100,8 +100,10 @@ body {
 /* ==Customers Begins== */
 .table {
     border-radius: 5px;
+    
     background-color: #000000c2;
-    background-image: linear-gradient(360deg, #4b4949 0%, #a3a0a0 5%);
+    background-image: linear-gradient(360deg, #888585 0%, #a3a0a0 5%);
+    
 }
 
 #customers-H1 {
