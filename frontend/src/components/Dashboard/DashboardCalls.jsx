@@ -29,7 +29,7 @@ class DashboardCalls extends Component {
                             <div className="level-right">
                                 <div className="has-text-right">
                                     <p className="tag is-success is-5 is-marginless is-large has-text-weight-bold">
-                                        {rsn[0].count}
+                                        {rsn[0]?.count}
                                         {/* countWoN */}
                                     </p>
 
@@ -51,7 +51,7 @@ class DashboardCalls extends Component {
                             <div className="level-right">
                                 <div className="has-text-right">
                                     <p className="tag is-warning is-5 is-marginless is-large has-text-weight-bold">
-                                        {rsn[1].count}
+                                        {rsn[1]?.count}
                                         {/* countWoS */}
                                     </p>
                                 </div>
@@ -72,7 +72,7 @@ class DashboardCalls extends Component {
                             <div className="level-right">
                                 <div className="has-text-right">
                                     <p className="tag is-danger is-5 is-marginless is-large has-text-weight-bold">
-                                        {rsn[2].count}
+                                        {rsn[2]?.count}
                                         {/* countWoT */}
                                     </p>
                                 </div>
