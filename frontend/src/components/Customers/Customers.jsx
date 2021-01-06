@@ -122,6 +122,7 @@ class Customers extends Component {
                                                 <th>City</th>
                                                 <th>State</th>
                                                 <th>Phone Number</th>
+                                                <th>Open W.O.</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -132,6 +133,7 @@ class Customers extends Component {
                                                 <th>City</th>
                                                 <th>State</th>
                                                 <th>Phone Number</th>
+                                                <th>Open W.O.</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
@@ -157,6 +159,11 @@ class Customers extends Component {
                                                                 {custData.phone}
                                                             </div>
                                                         </td>
+                                                        <td>
+                                                            <strong>
+                                                                <center>{custData.openwo}</center>
+                                                            </strong>
+                                                        </td>
                                                     </tr>
                                                 ))
                                             }
@@ -165,7 +172,6 @@ class Customers extends Component {
 
                                     <div>
                                         <ul id='page-numbers'>
-                                            test
                                             {renderPageNumbers}
                                         </ul>
                                     </div>
