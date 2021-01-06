@@ -7,14 +7,13 @@ import API from '../../util/api';
 
 
 
-
 class Customers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            customers: [],
+            data: [],
             currentPage: 1,
-            customersPerPage: 20
+            customersPerPage: 15
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -27,29 +26,32 @@ class Customers extends Component {
 
     componentDidMount() {
         API.getCustomers().then(response => {
-            // console.log('customers:', response.data);
-            this.setState({ customers: response.data });
+            console.log('customers:', response.data);
+            this.setState({ data: response.data });
+            // this.setState({ customers: currentCustomers });
         });
     }
 
-
     render() {
-        const { customers, currentPage, customersPerPage } = this.state;
+        const { data, currentPage, customersPerPage } = this.state;
 
         // Logic for displaying current customers
         const indexOfLastCustomer = currentPage * customersPerPage;
         const indexOfFirstCustomer = indexOfLastCustomer - customersPerPage;
-        const currentCustomers = customers.slice(indexOfFirstCustomer, indexOfLastCustomer);
+        const currentCustomers = data.slice(indexOfFirstCustomer, indexOfLastCustomer);
 
-        // const renderCustomers = currentCustomers.map((customers, index) => {
-        //     return <li key={customers.cust_id} >{customer}</li>;
-        // });
+        console.log(currentCustomers);
+        console.log(indexOfFirstCustomer);
+        console.log(indexOfLastCustomer);
+
+
 
         // Logic for displaying page numbers
         const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(customers.length / customersPerPage); i++) {
+        for (let i = 1; i <= Math.ceil(data.length / customersPerPage); i++) {
             pageNumbers.push(i);
         }
+
 
         const renderPageNumbers = pageNumbers.map(number => {
             return (
@@ -63,7 +65,29 @@ class Customers extends Component {
             );
         });
 
-
+        {/* const renderCustomers = currentCustomers.map((data, index) => {
+                                                     return <li key={data.cust_id} >{customer}</li>;
+                                                 }); */}
+        // {
+        //     this.state.data.map((custData, index) => (
+        //         <tr key={index} value={this.state.value}>
+        //             <td>
+        //                 <strong>
+        //                     <p>{custData.customer}</p>
+        //                 </strong>
+        //             </td>
+        //             <td><code>{custData.email}</code></td>
+        //             <td>{custData.address}</td>
+        //             <td>{custData.city}</td>
+        //             <td>{custData.state}</td>
+        //             <td>
+        //                 <div className="button">
+        //                     {custData.phone}
+        //                 </div>
+        //             </td>
+        //         </tr>
+        //     ))
+        // }
 
         return (
             <div>
@@ -74,7 +98,6 @@ class Customers extends Component {
 
                         <div className="column">
                             <h1 className="title" id='customers-H1'>Customers</h1>
-
 
                             <nav className="level">
                                 <div className="level-left">
@@ -112,29 +135,37 @@ class Customers extends Component {
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            {this.state.customers.map(custData => (
-                                                <tr key={custData.cust_id}>
-                                                    <td>
-                                                        <strong>
-                                                            <p>{custData.customer}</p>
-                                                        </strong>
-                                                    </td>
-                                                    <td><code>{custData.email}</code></td>
-                                                    <td>{custData.address}</td>
-                                                    <td>{custData.city}</td>
-                                                    <td>{custData.state}</td>
-                                                    <td>
-                                                        <div className="button">
-                                                            {custData.phone}
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))}
+                                            {/* const renderCustomers = currentCustomers.map((data, index) => {
+                                                     return <li key={data.cust_id} >{customer}</li>;
+                                                 }); */}
+
+
+                                            {
+                                                this.state.data.slice(indexOfFirstCustomer, indexOfLastCustomer).map((custData, index) => (
+                                                    <tr key={index} value={this.state.value}>
+                                                        <td>
+                                                            <strong>
+                                                                <p>{custData.customer}</p>
+                                                            </strong>
+                                                        </td>
+                                                        <td><code>{custData.email}</code></td>
+                                                        <td>{custData.address}</td>
+                                                        <td>{custData.city}</td>
+                                                        <td>{custData.state}</td>
+                                                        <td>
+                                                            <div className="button">
+                                                                {custData.phone}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
                                         </tbody>
                                     </table>
 
                                     <div>
                                         <ul id='page-numbers'>
+                                            test
                                             {renderPageNumbers}
                                         </ul>
                                     </div>
@@ -150,3 +181,4 @@ class Customers extends Component {
 }
 
 export default Customers;
+
