@@ -13,7 +13,7 @@ class Techs extends Component {
                         <Menu />
 
                         <div className="column">
-                            <h1 className="title">Technicians</h1>
+                            <h1 className="title" id='technicians-H1'>Technicians</h1>
 
                             <nav className="level">
                                 <div className="level-left">

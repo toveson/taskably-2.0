@@ -16,12 +16,12 @@ class Inventory extends Component {
                         <Menu />
 
                         <div className="column">
-                            <h1 className="title">Inventory</h1>
+                            <h1 className="title" id='inventory-H1'>Inventory</h1>
 
                             <nav className="level">
                                 <div className="level-left">
                                     <div className='level-item'>
-                                        <p className="subtitle is-5"><strong>5</strong> items</p>
+                                        <p className="subtitle is-5" id='inventoryItems'><strong id='inventoryItemsCount'>4</strong> items</p>
                                     </div>
 
                                     <p className="level-item tag is-success">

@@ -9,11 +9,27 @@ import DashboardInventory from './DashboardInventory';
 import DashboardTechnicians from './DashboardTechnicians';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
+import '../../index.css';
+import API from '../../util/api.js';
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            stats: []
+        };
+    }
+
+    componentDidMount() {
+        API.getStatsWO().then(response => {
+            console.log('stats:', response.data);
+            this.setState({ stats: response.data });
+        });
+    }
+
     render() {
         return (
-            <div>
+            <div className='d shine'>
                 <Navbar />
                 <section className="section">
                     <div className="columns">
@@ -45,7 +61,7 @@ class Dashboard extends Component {
                             <div className="columns is-multiline">
                                 {/* {{!-- Total Orders tile --}} */}
                                 <div className="column is-12-tablet is-6-desktop is-3-widescreen">
-                                    <DashboardTotal />
+                                    <DashboardTotal stats={this.state.stats} />
                                 </div>
 
                                 {/* {{!-- Pending Orders tile --}} */}

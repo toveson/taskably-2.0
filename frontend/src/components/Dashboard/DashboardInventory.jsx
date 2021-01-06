@@ -7,10 +7,10 @@ class DashboardInventory extends Component {
     render() {
         return (
             <div>
-                <p>DashboardInventory</p>
+                {/* DashboardInventory */}
                 <div className="card">
-                    <div className="card-content">
-                        <h2 className=" title is-4">Inventory</h2>
+                    <div className="card-content cardDashboard">
+                        <h2 className=" title is-4"><u>Inventory</u></h2>
 
                         <div className="media">
                             <div media-left is-marginless>
@@ -63,7 +63,7 @@ class DashboardInventory extends Component {
                             </div>
                         </div>
 
-                        <a className="button is-link is-outlined" href="inventory">View all inventory</a>
+                        <a className="button is-link is-outlined" id='buttonDashboard' href="inventory">View all inventory</a>
                     </div>
                 </div>
             </div>

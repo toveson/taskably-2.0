@@ -24,7 +24,7 @@ class Menu extends Component {
                                     {/* <i className='fa fa-tachometer'></i> */}
                                     <img src={DashboardIcon} />
                                 </span>
-                                <span style={inlineStyle}>
+                                <span className='menuLink' style={inlineStyle}>
                                     Dashboard
                                 </span>
                             </a>
@@ -36,7 +36,7 @@ class Menu extends Component {
                                     {/* <i className='fa fa-book'></i> */}
                                     <img src={InventoryIcon} />
                                 </span>
-                                <span style={inlineStyle}>
+                                <span className='menuLink' style={inlineStyle}>
                                     Inventory
                                 </span>
                             </a>
@@ -49,7 +49,7 @@ class Menu extends Component {
                                     <img src={CustomersIcon} />
                                     {/* <i src={CustomersIcon}></i> */}
                                 </span>
-                                <span style={inlineStyle}>
+                                <span className='menuLink' style={inlineStyle}>
                                     Customers
                                 </span>
                             </a>
@@ -61,7 +61,7 @@ class Menu extends Component {
                                     <img src={TechsIcon4} />
                                     {/* <i className='fa fa-hard-hat'></i> */}
                                 </span>
-                                <span style={inlineStyle}>
+                                <span className='menuLink' style={inlineStyle}>
                                     Technicians
                                 </span>
                             </a>
@@ -73,8 +73,8 @@ class Menu extends Component {
                                     <img src={OrdersIcon} />
                                     {/* <i className='fa fa-clipboard-list'></i> */}
                                 </span>
-                                <span style={inlineStyle}>
-                                    Orders
+                                <span className='menuLink' style={inlineStyle}>
+                                    Work Orders
                                 </span>
                             </a>
                         </li>

@@ -9,7 +9,7 @@ class Navbar extends Component {
 
                 <div className='navbar-brand'>
                     {/* <!-- Logo, tagline and navbar-burger --> */}
-                    <a className='navbar-item' width="250" href="index">
+                    <a className='navbar-item' width="250" href="dashboard">
                         <img src={taskablyLogo}alt="taskably company logo" />
                     </a>
                     {/* <div className='navbar-burger burger'
