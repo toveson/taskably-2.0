@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import { useState, useEffect } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import API from '../../util/api';
-// import Pagination from '../Pagination/Pagination';
-
-
 
 class Customers extends Component {
     constructor(props) {
@@ -41,8 +37,8 @@ class Customers extends Component {
         const currentCustomers = data.slice(indexOfFirstCustomer, indexOfLastCustomer);
 
         console.log(currentCustomers);
-        console.log(indexOfFirstCustomer);
-        console.log(indexOfLastCustomer);
+        // console.log(indexOfFirstCustomer);
+        // console.log(indexOfLastCustomer);
 
 
 
@@ -64,30 +60,6 @@ class Customers extends Component {
                 </li>
             );
         });
-
-        {/* const renderCustomers = currentCustomers.map((data, index) => {
-                                                     return <li key={data.cust_id} >{customer}</li>;
-                                                 }); */}
-        // {
-        //     this.state.data.map((custData, index) => (
-        //         <tr key={index} value={this.state.value}>
-        //             <td>
-        //                 <strong>
-        //                     <p>{custData.customer}</p>
-        //                 </strong>
-        //             </td>
-        //             <td><code>{custData.email}</code></td>
-        //             <td>{custData.address}</td>
-        //             <td>{custData.city}</td>
-        //             <td>{custData.state}</td>
-        //             <td>
-        //                 <div className="button">
-        //                     {custData.phone}
-        //                 </div>
-        //             </td>
-        //         </tr>
-        //     ))
-        // }
 
         return (
             <div>
@@ -137,10 +109,6 @@ class Customers extends Component {
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            {/* const renderCustomers = currentCustomers.map((data, index) => {
-                                                     return <li key={data.cust_id} >{customer}</li>;
-                                                 }); */}
-
 
                                             {
                                                 this.state.data.slice(indexOfFirstCustomer, indexOfLastCustomer).map((custData, index) => (
