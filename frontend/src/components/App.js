@@ -21,19 +21,23 @@ class App extends Component {
         // });
 
         return (
-            <BrowserRouter>
-                <div>
-                    <Route exact path='/' component={Login} />
-                    <Route path='/dashboard' component={Dashboard} />
-                    <Route path='/inventory' component={Inventory} />
-                    <Route path='/customers' component={Customers} />
-                    <Route path='/new-customer' component={NewCustomer} />
-                    <Route path='/techs' component={Techs} />
-                    <Route path='/orders' component={Orders} />
-                </div>
-            </BrowserRouter>
+            <>
+                <BrowserRouter>
+                    <div>
+                        <Route exact path='/' component={Login} />
+                        <Route path='/dashboard' component={Dashboard} />
+                        <Route path='/inventory' component={Inventory} />
+                        <Route path='/customers' component={Customers} />
+                        <Route path='/new-customer' component={NewCustomer} />
+                        <Route path='/techs' component={Techs} />
+                        <Route path='/orders' component={Orders} />
+                    </div>
+                </BrowserRouter>
+            </>
         );
     }
 }
+
+
 
 export default App;
