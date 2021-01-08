@@ -9,6 +9,7 @@ const api = {
     , getInv: () => axios.get('./api/inventory/getinv')
     , getTechs: () => axios.get('./api/techs/')
     , postNewTech: () => axios.post('/api/techs/new-tech')
+    , getWorkorders: () => axios.get('./api/workorders/')
 };
 
 export default api;
