@@ -17,6 +17,7 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             stats: []
+            , rsn: []
         };
     }
 
@@ -24,6 +25,11 @@ class Dashboard extends Component {
         API.getStatsWO().then(response => {
             console.log('stats:', response.data);
             this.setState({ stats: response.data });
+        });
+
+        API.getStatsRsn().then(response => {
+            console.log('rsn: ', response.data);
+            this.setState({ rsn: response.data });
         });
     }
 
@@ -66,22 +72,22 @@ class Dashboard extends Component {
 
                                 {/* {{!-- Pending Orders tile --}} */}
                                 <div className="column is-12-tablet is-6-desktop is-3-widescreen">
-                                    <DashboardPending />
+                                    <DashboardPending stats={this.state.stats} />
                                 </div>
 
                                 {/* {{!-- Assigned tile  --}} */}
                                 <div className="column is-12-tablet is-6-desktop is-3-widescreen">
-                                    <DashboardAssigned />
+                                    <DashboardAssigned stats={this.state.stats} />
                                 </div>
 
                                 {/* {{!-- Completed Orders tile  --}} */}
                                 <div className="column is-12-tablet is-6-desktop is-3-widescreen">
-                                    <DashboardCompleted />
+                                    <DashboardCompleted stats={this.state.stats} />
                                 </div>
 
                                 {/* {{!-- Type of Calls tile --}} */}
                                 <div className="column is-12-tablet is-6-desktop is-4-fullhd">
-                                    <DashboardCalls />
+                                    <DashboardCalls rsn={this.state.rsn} />
                                 </div>
 
                                 {/* Inventory Tile */}
