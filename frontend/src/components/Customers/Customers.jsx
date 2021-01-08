@@ -37,9 +37,6 @@ class Customers extends Component {
         const currentCustomers = data.slice(indexOfFirstCustomer, indexOfLastCustomer);
 
         console.log(currentCustomers);
-        // console.log(indexOfFirstCustomer);
-        // console.log(indexOfLastCustomer);
-
 
 
         // Logic for displaying page numbers
@@ -55,11 +52,13 @@ class Customers extends Component {
                     key={number}
                     id={number}
                     onClick={this.handleClick}
+                    className='pagination-link'
                 >
                     {number}
                 </li>
             );
         });
+
 
         return (
             <div>
@@ -138,11 +137,13 @@ class Customers extends Component {
                                         </tbody>
                                     </table>
 
-                                    <div>
-                                        <ul id='page-numbers'>
-                                            {renderPageNumbers}
-                                        </ul>
-                                    </div>
+                                    {/* <nav className='pagination is-rounded' role='navigation' aria-label='pagination'> */}
+                                    {/* <a className='pagination-previous' id='page-nav'>Previous</a>
+                                        <a className='pagination-next' id='page-nav'>Next</a> */}
+                                    <ul className='pagination-list is-rounded' id='page-numbers'>
+                                        {renderPageNumbers}
+                                    </ul>
+                                    {/* </nav> */}
                                 </div >
                             </div >
                         </div >
