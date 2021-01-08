@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = {
     getCustomers: () => axios.get('/api/customers/')
-    , postNewCust: () => axios.post('/api/customers/new-customer')
+    , postNewCust: (data) => axios.post('/api/customers/new-customer', data)
     , getStatsWO: () => axios.get('/api/stats/getcountWO')
     , getStatsRsn: () => axios.get('./api/stats/getcountRsn')
     , getStatsInv: () => axios.get('./api/stats/getTotInv')

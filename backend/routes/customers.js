@@ -18,10 +18,12 @@ router.get('/', (req, res) => {
 
 router.post('/new-customer', (req, res) => {
     let sql = 'call newCustomer(?,?,?,?,?,?,?,?)';
+    console.log(req.body);
     db.query(sql, [req.body.p_first_name, req.body.p_last_name, req.body.p_email, req.body.p_address, req.body.p_city, req.body.p_state, req.body.p_zip, req.body.p_phone]
         , (err, rows) => {
             if (err) {
                 console.error(err.message);
+                return res.status(500).send(err);
             }
             // console.log('+++++++++++query: ', query);
             console.log(rows);
