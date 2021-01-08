@@ -23,7 +23,7 @@ router.post('/new-tech', (req, res) => {
             if (err) {
                 console.error(err.message);
             }
-            console.log(rows);
+            // console.log(rows);
             res.send(rows);
         });
 });

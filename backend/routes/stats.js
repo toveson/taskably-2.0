@@ -11,7 +11,7 @@ router.get('/getcountWO', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(rows);
+        // console.log(rows);
         res.send(rows);
     });
 });
@@ -22,7 +22,7 @@ router.get('/getcountRsn', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(rows);
+        // console.log(rows);
         res.send(rows);
     });
 });
@@ -33,7 +33,7 @@ router.get('/getTotInv', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(rows);
+        // console.log(rows);
         res.send(rows);
     });
 });
