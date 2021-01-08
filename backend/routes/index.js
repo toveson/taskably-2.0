@@ -2,10 +2,11 @@ const customers = require('./customers.js');
 const stats = require('./stats.js');
 const techs = require('./techs.js');
 const inventory = require('./inventory.js');
+const workorders = require('./workorders.js');
 
 // console.log('testing index');
 
-module.exports = { customers, stats, techs, inventory };
+module.exports = { customers, stats, techs, inventory, workorders };
 
 // app.get('/', (req, res) => {
 //     let sql = 'SELECT * FROM v_manager';
