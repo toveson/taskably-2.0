@@ -9,89 +9,51 @@ const io = require('socket.io')(server, {
     }
 });
 require('dotenv').config();
-// coclearnst cors = require('cors');
-const authUser = require('./config/auth.config.js');
+// cors = require('cors');
+// const authUser = require('./config/auth.config.js');
+// const db =require('./config/connection');
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
+// const saltRounds = 10;
 
-// let db = require('./config/connection.js');
+let tempdb = [];
+
 const routes = require('./routes/index.js');
-// console.log('routes:', routes);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
-
-
-
-
-
 io.on('connection', function (socket) {
     socket.emit('hello');
 });
-let tempdb = [];
 
 // login route
-app.post('/login', (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
+app.post('/login', async (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
 
-    // console.log(username, password);
+    console.log(username, password);
     res.json(tempdb);
 
     // search db for username
+    if (username === null) {
+        return res.status(400).send('Login failed');
+    }
     // if username is there then compare
-    // no user name return login failed
-
-
-    // compare password (bcrypt)
-    // if password is correct sign jws token with (username, role) and send it back
-    // if password is wrong return login failed
+    try {
+        // compare password (bcrypt)
+        if (await bcrypt.compare(password, username.password)) {
+            // if password is correct
+            // sign jws token with (username, role) and send it back
+            res.send('Success');
+        } else {
+            // if password is wrong return login failed
+            res.send('Login failed');
+        }
+        // no user name return login failed
+    } catch {
+        res.status(500).send();
+    }
 });
-
-
-
-app.post('/newuser', (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-
-    // hashing password
-    bcrypt.hash(password, saltRounds, function (err, hash) {
-        // Store hash in your password DB.
-        let user = {
-            username,
-            password: hash
-        };
-
-
-
-
-        tempdb.push(user);
-        console.log(username, password);
-
-        console.log('hit new user');
-        res.end();
-    });
-});
-
-
-
-
-
-
-
-//testing sensitive info
-app.get('/test', (req, res) => {
-    let stuff = 'real password';
-
-    res.send(stuff);
-});
-
-
-
-
 
 app.use('/api/customers', routes.customers);
 app.use('/api/stats', routes.stats);
