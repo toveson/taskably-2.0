@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
+import API from '../../util/api';
 
 
 class Orders extends Component {
@@ -46,31 +47,45 @@ class Orders extends Component {
                                 <table className="table is-hoverable is-fullwidth">
                                     <thead>
                                         <tr>
-                                            <th>Order #</th>
+                                            <th>Region</th>
                                             <th>Technician</th>
-                                            <th>Customer Name</th>
-                                            <th>Appointment Date</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Products</th>
-                                            <th>Reason</th>
+                                            <th>Order #</th>
                                             <th>Status</th>
+                                            <th>Reason</th>
+                                            <th>Appt. Date</th>
+                                            <th>Appt. Time</th>
+                                            <th>Customer</th>
+                                            <th>Address</th>
+                                            <th>City</th>
+                                            <th>State</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Order #</th>
+                                            <th>Region</th>
                                             <th>Technician</th>
-                                            <th>Customer Name</th>
-                                            <th>Appointment Date</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Products</th>
-                                            <th>Reason</th>
+                                            <th>Order #</th>
                                             <th>Status</th>
+                                            <th>Reason</th>
+                                            <th>Appt. Date</th>
+                                            <th>Appt. Time</th>
+                                            <th>Customer</th>
+                                            <th>Address</th>
+                                            <th>City</th>
+                                            <th>State</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
 
                                         <tr>
                                             <td><strong>id</strong></td>
-                                            <td>Tech.first_name Tech.last_name</td>
+                                            <td>first_name last_name</td>
                                             <td>Customer.first_name Customer.last_name</td>
                                             <td>appt_date</td>
                                             <td>products</td>

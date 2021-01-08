@@ -87,7 +87,7 @@ body {
 }
 
 #inventoryItemsCount {
-    color:rgb(212, 209, 209)
+    color: rgb(212, 209, 209)
 }
 
 .box {
@@ -101,10 +101,10 @@ body {
 /* ==Customers Begins== */
 .table {
     border-radius: 5px;
-    
+
     background-color: #000000c2;
     background-image: linear-gradient(360deg, #888585 0%, #a3a0a0 5%);
-    
+
 }
 
 #customers-H1 {
@@ -116,12 +116,13 @@ body {
     font-weight: 600;
     border-width: 0px;
 }
+
 /* ==Customer Ends== */
 
 
 /* ==Technicians Begins== */
 #technicians-H1 {
-    color: rgb(233, 230, 230);   
+    color: rgb(233, 230, 230);
 }
 
 /* ==Technicians Ends== */
@@ -129,7 +130,7 @@ body {
 
 /* ==Orders Begins== */
 #orders-H1 {
-    color: rgb(233, 230, 230);  
+    color: rgb(233, 230, 230);
 }
 
 #Orders-orders {
@@ -137,7 +138,7 @@ body {
 }
 
 #Orders-count {
-    color:rgb(212, 209, 209)
+    color: rgb(212, 209, 209)
 }
 
 /* ==Orders End== */
@@ -148,13 +149,18 @@ body {
     list-style: none;
     display: flex;
     text-size-adjust: 20px;
-  }
-  
-  #page-numbers > li {
+    
+}
+
+#page-numbers>li {
     margin-right: 0.3em;
     color: blue;
     user-select: none;
     cursor: pointer;
-  }
+    background: rgb(212, 212, 211);
+}
 
-  /* ==Pagination Ends== */
+#page-nav {
+    background: rgb(212, 212, 211);   
+}
+/* ==Pagination Ends== */
