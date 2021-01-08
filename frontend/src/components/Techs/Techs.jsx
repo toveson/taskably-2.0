@@ -22,7 +22,7 @@ class Techs extends Component {
 
     componentDidMount() {
         API.getTechs().then(response => {
-            console.log('tech:', response.data);
+            // console.log('tech:', response.data);
             this.setState({ techData: response.data });
         });
     }
@@ -33,12 +33,12 @@ class Techs extends Component {
         // Logic for displaying current technicians
         const indexOfLastTech = currentPage * techsPerPage;
         const indexOfFirstTech = indexOfLastTech - techsPerPage;
-        const currentTechs = techData.slice(indexOfFirstTech, indexOfLastTech);
+        // const currentTechs = techData.slice(indexOfFirstTech, indexOfLastTech);
 
-        console.log(techData);
-        console.log(currentTechs);
-        console.log(indexOfFirstTech);
-        console.log(indexOfLastTech);
+        // console.log(techData);
+        // console.log(currentTechs);
+        // console.log(indexOfFirstTech);
+        // console.log(indexOfLastTech);
 
 
 

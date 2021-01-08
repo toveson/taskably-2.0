@@ -11,8 +11,11 @@ const io = require('socket.io')(server, {
 require('dotenv').config();
 // cors = require('cors');
 // const authUser = require('./config/auth.config.js');
+// const db =require('./config/connection');
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
+// const saltRounds = 10;
+
+let tempdb = [];
 
 const routes = require('./routes/index.js');
 
@@ -23,15 +26,12 @@ io.on('connection', function (socket) {
     socket.emit('hello');
 });
 
-// this will be switched to the database
-let tempdb = [];
-
 // login route
 app.post('/login', async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    // console.log(username, password);
+    console.log(username, password);
     res.json(tempdb);
 
     // search db for username
@@ -53,34 +53,6 @@ app.post('/login', async (req, res) => {
     } catch {
         res.status(500).send();
     }
-});
-
-// make a new user
-app.post('/newuser', (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-
-    // hashing password
-    bcrypt.hash(password, saltRounds, function (err, hash) {
-        // Store hash in your password DB.
-        let user = {
-            username,
-            password: hash
-        };
-
-        tempdb.push(user);
-        console.log(username, password);
-
-        console.log('hit new user');
-        res.end();
-    });
-});
-
-//testing sensitive info
-app.get('/test', (req, res) => {
-    let stuff = 'real password';
-
-    res.send(stuff);
 });
 
 app.use('/api/customers', routes.customers);
