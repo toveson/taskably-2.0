@@ -25,7 +25,6 @@ router.post('/new-customer', (req, res) => {
                 console.error(err.message);
                 return res.status(500).send(err);
             }
-            // console.log('+++++++++++query: ', query);
             console.log(rows);
             res.send(rows);
         });
