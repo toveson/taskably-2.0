@@ -20,6 +20,8 @@ const api = {
     , getReason: () => axios.get('./api/lookup/reason')
     , getRoles: () => axios.get('./api/lookup/roles')
     , getStatus: () => axios.get('./api/lookup/status')
+
+    , getUsers: () => axios.get('./api/users')
 };
 
 export default api;
