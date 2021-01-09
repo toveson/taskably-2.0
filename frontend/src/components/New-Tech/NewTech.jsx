@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
 import API from '../../util/api';
 
-class NewCustomer extends Component {
+class NewTech extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,9 +12,7 @@ class NewCustomer extends Component {
             , p_last_name: ''
             , p_email: ''
             , p_address: ''
-            , p_city: ''
-            , p_state: ''
-            , p_zip: ''
+            , p_rgn_cd: ''
             , p_phone: ''
             , success: false
         };
@@ -30,12 +28,12 @@ class NewCustomer extends Component {
         this.setState({
             [name]: value
         });
-        console.log('newCustState: ', this.state);
+        console.log('newTechState: ', this.state);
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        API.postNewCust(this.state).then(() => {
+        API.postNewTech(this.state).then(() => {
             this.setState({ success: true });
         });
         this.setState({
@@ -43,9 +41,7 @@ class NewCustomer extends Component {
             , p_last_name: ''
             , p_email: ''
             , p_address: ''
-            , p_city: ''
-            , p_state: ''
-            , p_zip: ''
+            , p_rgn_cd: ''
             , p_phone: ''
             , success: false
         });
@@ -68,7 +64,7 @@ class NewCustomer extends Component {
                                                 <form className='box login' id='new-customer'>
                                                     <div className='field has-text-centered'>
                                                         <img src={CheckmarkLogo} alt='taskably company logo' width='30' /><span
-                                                            className='text has-text-weight-bold is-size-3 has-text-justified'>Create New Customer</span>
+                                                            className='text has-text-weight-bold is-size-3 has-text-justified'>Add New Technician</span>
                                                         <h2></h2>
                                                     </div>
 
@@ -110,51 +106,14 @@ class NewCustomer extends Component {
                                                         </div>
                                                     </div>
                                                     <div className='field'>
-                                                        <label className='label'>Address</label>
+                                                        <label className='label'>Region</label>
                                                         <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. 123 Main St' id='address'
-                                                                required
-                                                                name='p_address' value={this.state.p_address}
-                                                                onChange={this.handleInputChange} />
-                                                            <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className='field'>
-                                                        <label className='label'>City</label>
-                                                        <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. Salt Lake City' id='city'
-                                                                required
-                                                                name='p_city' value={this.state.p_city}
-                                                                onChange={this.handleInputChange} />
-                                                            <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className='field'>
-                                                        <label className='label'>State</label>
-                                                        <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. UT' id='state'
-                                                                maxLength='2' style={{ textTransform: 'uppercase' }} required
-                                                                name='p_state' value={this.state.p_state}
+                                                            <input className='input' type='text' placeholder='e.g. PAC' id='region'
+                                                                maxLength='3' style={{ textTransform: 'uppercase' }} required
+                                                                name='p_rgn_cd' value={this.state.p_rgn_cd}
                                                                 onChange={this.handleInputChange} />
                                                             {/* // style={textTransform:'uppercase'} required > */}
                                                             {/* // style={{}}> {'state'.toUpperCase()} </input> */}
-                                                            <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
-                                                            </span>
-
-                                                        </div>
-                                                    </div>
-                                                    <div className='field'>
-                                                        <label className='label'>Zip Code</label>
-                                                        <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. 84101' id='zip'
-                                                                maxLength='5' required
-                                                                name='p_zip' value={this.state.p_zip}
-                                                                onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
                                                             </span>
@@ -186,7 +145,7 @@ class NewCustomer extends Component {
                                                                     <div className='card'>
                                                                         <div className='card-content'>
                                                                             <p className='title'>
-                                                                                Customer successfully created
+                                                                                Technician Successfully Added
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -210,4 +169,4 @@ class NewCustomer extends Component {
     }
 }
 
-export default NewCustomer;
+export default NewTech;

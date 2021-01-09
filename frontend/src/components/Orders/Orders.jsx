@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
-import API from '../../util/api';
+// import API from '../../util/api';
 
 
 class Orders extends Component {

@@ -8,7 +8,7 @@ const api = {
     , getStatsInv: () => axios.get('./api/stats/getTotInv')
     , getInv: () => axios.get('./api/inventory/getinv')
     , getTechs: () => axios.get('./api/techs/')
-    , postNewTech: () => axios.post('/api/techs/new-tech')
+    , postNewTech: (data) => axios.post('/api/techs/new-tech', data)
     , getWorkorders: () => axios.get('./api/workorders/')
 };
 

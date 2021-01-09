@@ -11,6 +11,7 @@ import Techs from './Techs/Techs';
 import Customers from './Customers/Customers';
 import Orders from './Orders/Orders';
 import NewCustomer from './New-Customer/NewCustomer';
+import NewTech from './New-Tech/NewTech';
 
 class App extends Component {
     render() {
@@ -30,6 +31,7 @@ class App extends Component {
                         <Route path='/customers' component={Customers} />
                         <Route path='/new-customer' component={NewCustomer} />
                         <Route path='/techs' component={Techs} />
+                        <Route path='/new-tech' component={NewTech} />
                         <Route path='/orders' component={Orders} />
                     </div>
                 </BrowserRouter>
