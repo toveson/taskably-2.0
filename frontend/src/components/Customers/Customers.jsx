@@ -85,7 +85,7 @@ class Customers extends Component {
                             <div>
                                 <div className="table-container">
                                     <table className="table is-hoverable is-fullwidth">
-                                        <thead>
+                                        <thead className='theader'>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email</th>
@@ -96,7 +96,7 @@ class Customers extends Component {
                                                 <th>Open W.O.</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
+                                        <tfoot className='tfooter'>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email</th>

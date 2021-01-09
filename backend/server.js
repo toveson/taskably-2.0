@@ -23,7 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 io.on('connection', function (socket) {
-    socket.emit('hello');
+    console.log('New User Connected');
+
+    socket.on('new-message', function (data) {
+        console.log(data);
+        socket.broadcast.emit('post-message', data.message);
+    });
 });
 
 // login route
@@ -61,7 +66,9 @@ app.use('/api/techs', routes.techs);
 app.use('/api/inventory', routes.inventory);
 app.use('/api/workorders', routes.workorders);
 app.use('/api/lookup', routes.lookup);
+app.use('/api/newuser', routes.newUser);
 app.use('/api/users', routes.users);
+
 //  setting up server
 const PORT = process.env.PORT || 8081;
 
