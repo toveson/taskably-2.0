@@ -55,6 +55,7 @@ class Techs extends Component {
                     key={number}
                     id={number}
                     onClick={this.handleClick}
+                    className='pagination-link'
                 >
                     {number}
                 </li>
@@ -140,7 +141,7 @@ class Techs extends Component {
                                     </table>
 
                                     <div>
-                                        <ul id='page-numbers'>
+                                        <ul className='pagination-list is-rounded' id='page-numbers'>
                                             {renderPageNumbers}
                                         </ul>
                                     </div>

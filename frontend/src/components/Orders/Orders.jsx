@@ -55,6 +55,7 @@ class Orders extends Component {
                     key={number}
                     id={number}
                     onClick={this.handleClick}
+                    className='pagination-link'
                 >
                     {number}
                 </li>
@@ -174,7 +175,7 @@ class Orders extends Component {
                                 </table>
 
                                 <div>
-                                    <ul id='page-numbers'>
+                                    <ul className='pagination-list is-rounded' id='page-numbers'>
                                         {renderPageNumbers}
                                     </ul>
                                 </div>

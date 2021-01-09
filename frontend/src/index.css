@@ -149,7 +149,6 @@ body {
     list-style: none;
     display: flex;
     text-size-adjust: 20px;
-    
 }
 
 #page-numbers>li {
@@ -165,6 +164,7 @@ body {
 }
 /* ==Pagination Ends== */
 
+
 /* ==Table Begins== */
 
 .table thead {
@@ -177,3 +177,4 @@ body {
     background-image: linear-gradient(to bottom, #030303 0%, #a3a0a0 25%);
 }
 
+/* ==Table Ends== */
