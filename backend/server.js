@@ -67,6 +67,7 @@ app.use('/api/inventory', routes.inventory);
 app.use('/api/workorders', routes.workorders);
 app.use('/api/lookup', routes.lookup);
 app.use('/api/newuser', routes.newUser);
+app.use('/api/users', routes.users);
 
 //  setting up server
 const PORT = process.env.PORT || 8081;
