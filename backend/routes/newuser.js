@@ -1,4 +1,4 @@
-const db =require('./config/connection');
+const db = require('./config/connection');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const express = require('express');
@@ -29,6 +29,7 @@ app.post('/newuser', (req, res) => {
             , (err, rows) => {
                 if (err) {
                     console.error(err.message);
+                    return res.status(500).send(err);
                 }
                 console.log(rows);
                 res.send(rows);

@@ -60,6 +60,7 @@ app.use('/api/stats', routes.stats);
 app.use('/api/techs', routes.techs);
 app.use('/api/inventory', routes.inventory);
 app.use('/api/workorders', routes.workorders);
+app.use('/api/lookup', routes.lookup);
 
 //  setting up server
 const PORT = process.env.PORT || 8081;
