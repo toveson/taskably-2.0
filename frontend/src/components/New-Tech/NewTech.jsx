@@ -3,6 +3,7 @@ import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
 import API from '../../util/api';
+import Select from 'react-dropdown-select';
 
 class NewTech extends Component {
     constructor(props) {
@@ -15,9 +16,17 @@ class NewTech extends Component {
             , p_rgn_cd: ''
             , p_phone: ''
             , success: false
+            , region: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        API.getRegion().then(response => {
+            console.log('region: ', response.data);
+            this.setState({ region: response.data });
+        });
     }
 
     handleInputChange(event) {
@@ -25,10 +34,11 @@ class NewTech extends Component {
         const value = target.value;
         const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
-        console.log('newTechState: ', this.state);
+        this.setState(
+            {
+                [name]: value
+            },
+            () => console.log('newTechState: ', this.state));
     }
 
     handleSubmit(event) {
@@ -108,12 +118,24 @@ class NewTech extends Component {
                                                     <div className='field'>
                                                         <label className='label'>Region</label>
                                                         <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. PAC' id='region'
+                                                            < Select
+                                                                options={this.state.region}
+                                                                labelField='region'
+                                                                valueField='rgn_cd'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_rgn_cd: values.rgn_cd });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_region'
+                                                                value={this.state.p_rgn_cd}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
+                                                            {/* <input className='input' type='text' placeholder='e.g. PAC' id='region'
                                                                 maxLength='3' style={{ textTransform: 'uppercase' }} required
                                                                 name='p_rgn_cd' value={this.state.p_rgn_cd}
-                                                                onChange={this.handleInputChange} />
-                                                            {/* // style={textTransform:'uppercase'} required > */}
-                                                            {/* // style={{}}> {'state'.toUpperCase()} </input> */}
+                                                                onChange={this.handleInputChange} /> */}
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
                                                             </span>
