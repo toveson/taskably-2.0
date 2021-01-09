@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
-import API from '../../util/api';
+import API from '../../util/api.js';
+import Select from 'react-dropdown-select';
 
 class NewCustomer extends Component {
     constructor(props) {
@@ -17,20 +18,30 @@ class NewCustomer extends Component {
             , p_zip: ''
             , p_phone: ''
             , success: false
+            , states: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        API.getStates().then(response => {
+            // console.log('states: ', response.data);
+            this.setState({ states: response.data });
+        });
+    }
+
     handleInputChange(event) {
+        console.log(event);
         const target = event.target;
         const value = target.value;
         const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
-        console.log('newCustState: ', this.state);
+        this.setState(
+            {
+                [name]: value
+            },
+            () => console.log('newCustState: ', this.state));
     }
 
     handleSubmit(event) {
@@ -136,12 +147,20 @@ class NewCustomer extends Component {
                                                     <div className='field'>
                                                         <label className='label'>State</label>
                                                         <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. UT' id='state'
-                                                                maxLength='2' style={{ textTransform: 'uppercase' }} required
-                                                                name='p_state' value={this.state.p_state}
-                                                                onChange={this.handleInputChange} />
-                                                            {/* // style={textTransform:'uppercase'} required > */}
-                                                            {/* // style={{}}> {'state'.toUpperCase()} </input> */}
+                                                            < Select
+                                                                options={this.state.states}
+                                                                labelField='st'
+                                                                valueField='st'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_state: values.st });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_state'
+                                                                value={this.state.p_state}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
                                                             </span>
