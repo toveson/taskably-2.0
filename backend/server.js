@@ -23,7 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 io.on('connection', function (socket) {
-    socket.emit('hello');
+    console.log('New User Connected');
+
+    socket.on('new-message', function (data) {
+        console.log(data);
+        socket.broadcast.emit('post-message', data.message);
+    });
 });
 
 // login route
