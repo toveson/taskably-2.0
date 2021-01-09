@@ -164,3 +164,16 @@ body {
     background: rgb(212, 212, 211);   
 }
 /* ==Pagination Ends== */
+
+/* ==Table Begins== */
+
+.table thead {
+    background-color: #575555dc;
+    background-image: linear-gradient(360deg, #030303 0%, #a3a0a0 25%);
+}
+
+.table tfoot {
+    background-color: #575555dc;
+    background-image: linear-gradient(to bottom, #030303 0%, #a3a0a0 25%);
+}
+
