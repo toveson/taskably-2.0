@@ -11,7 +11,7 @@ const api = {
     , getInv: () => axios.get('./api/inventory/')
 
     , getTechs: () => axios.get('./api/techs/')
-    , postNewTech: () => axios.post('/api/techs/new-tech')
+    , postNewTech: (data) => axios.post('/api/techs/new-tech', data)
 
     , getWorkorders: () => axios.get('./api/workorders/')
 
