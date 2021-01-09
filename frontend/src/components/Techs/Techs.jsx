@@ -55,6 +55,7 @@ class Techs extends Component {
                     key={number}
                     id={number}
                     onClick={this.handleClick}
+                    className='pagination-link'
                 >
                     {number}
                 </li>
@@ -86,7 +87,7 @@ class Techs extends Component {
                             <div>
                                 <div className="table-container">
                                     <table className="table is-hoverable is-fullwidth">
-                                        <thead>
+                                        <thead className='theader'>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email</th>
@@ -96,7 +97,7 @@ class Techs extends Component {
                                                 <th>W.O. Assigned</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
+                                        <tfoot className='tfooter'>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email</th>
@@ -140,7 +141,7 @@ class Techs extends Component {
                                     </table>
 
                                     <div>
-                                        <ul id='page-numbers'>
+                                        <ul className='pagination-list is-rounded' id='page-numbers'>
                                             {renderPageNumbers}
                                         </ul>
                                     </div>
