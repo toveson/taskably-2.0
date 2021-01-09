@@ -60,5 +60,15 @@ router.get('/status', (req, res) => {
     });
 });
 
+router.get('/state', (req, res) => {
+    const sql = 'SELECT * FROM v_lkpstate';
+    db.query(sql, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        // console.log(rows);
+        res.send(rows);
+    });
+});
 
 module.exports = router;
