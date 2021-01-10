@@ -17,3 +17,6 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+
+// move to controller?

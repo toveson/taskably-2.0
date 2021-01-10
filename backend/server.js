@@ -9,12 +9,6 @@ const io = require('socket.io')(server, {
     }
 });
 require('dotenv').config();
-// const authUser = require('./config/auth.config.js');
-// const db =require('./config/connection');
-const bcrypt = require('bcrypt');
-// const saltRounds = 10;
-
-// let tempdb = [];
 
 const routes = require('./routes/index.js');
 
@@ -30,36 +24,6 @@ io.on('connection', function (socket) {
     });
 });
 
-// login route
-app.post('/login', async (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const email = req.body.email;
-    const role = req.body.role;
-
-    console.log(username, password, email, role);
-    // res.json(tempdb);
-
-    // search db for email
-    if (username === null) {
-        return res.status(400).send('Login failed');
-    }
-    // if email is there then compare
-    try {
-        // compare password (bcrypt)
-        if (await bcrypt.compare(password, username.password)) {
-            // if password is correct
-            // sign jws token with (username, role, email) and send it back
-            res.send('Success');
-        } else {
-            // if password is wrong return login failed
-            res.send('Login failed');
-        }
-        // no user name return login failed
-    } catch {
-        res.status(500).send();
-    }
-});
 
 app.use('/api/customers', routes.customers);
 app.use('/api/stats', routes.stats);
@@ -69,6 +33,7 @@ app.use('/api/workorders', routes.workorders);
 app.use('/api/lookup', routes.lookup);
 app.use('/api/newuser', routes.newUser);
 app.use('/api/users', routes.users);
+app.use('/api/login', routes.login);
 
 //  setting up server
 const PORT = process.env.PORT || 8081;
