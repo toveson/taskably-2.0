@@ -12,6 +12,7 @@ import Customers from './Customers/Customers';
 import Orders from './Orders/Orders';
 import NewCustomer from './New-Customer/NewCustomer';
 import NewTech from './New-Tech/NewTech';
+import NewWO from './New-WorkOrder/NewWorkOrder';
 
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
                         <Route path='/techs' component={Techs} />
                         <Route path='/new-tech' component={NewTech} />
                         <Route path='/orders' component={Orders} />
+                        <Route path='/new-workorder' component={NewWO} />
                     </div>
                 </BrowserRouter>
             </>
