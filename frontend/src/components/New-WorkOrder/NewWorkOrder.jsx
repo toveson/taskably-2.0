@@ -3,7 +3,7 @@ import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
 import API from '../../util/api';
-// import Select from 'react-dropdown-select';
+import Select from 'react-dropdown-select';
 
 class NewWO extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class NewWO extends Component {
             , reason: []
             , customers: []
             , status: []
-            , techs: []
+            , tech: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,28 +28,28 @@ class NewWO extends Component {
 
     componentDidMount() {
         API.getProducts().then(response => {
-            console.log('products: ', response.data);
+            // console.log('products: ', response.data);
             this.setState({ products: response.data });
         });
 
         API.getReason().then(response => {
-            console.log('reason: ', response.data);
+            // console.log('reason: ', response.data);
             this.setState({ reason: response.data });
         });
 
         API.getCustomers().then(response => {
-            console.log('customers: ', response.data);
+            // console.log('customers: ', response.data);
             this.setState({ customers: response.data });
         });
 
         API.getStatus().then(response => {
-            console.log('status: ', response.data);
+            // console.log('status: ', response.data);
             this.setState({ status: response.data });
         });
 
         API.getTechs().then(response => {
             console.log('tech:', response.data);
-            this.setState({ techData: response.data });
+            this.setState({ tech: response.data });
         });
     }
 
@@ -100,6 +100,121 @@ class NewWO extends Component {
                                                         <img src={CheckmarkLogo} alt='taskably company logo' width='30' /><span
                                                             className='text has-text-weight-bold is-size-3 has-text-justified'>Create New Work Order</span>
                                                         <h2></h2>
+                                                    </div>
+
+                                                    <div className='field'>
+                                                        <label className='label'>Product</label>
+                                                        <div className='control has-icons-left'>
+                                                            < Select
+                                                                options={this.state.products}
+                                                                labelField='Products'
+                                                                valueField='pr_cd'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_pr_cd: values.pr_cd });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_pr_cd'
+                                                                value={this.state.p_pr_cd}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
+                                                            <span className='icon is-small is-left'>
+                                                                <i className='fas fa-map-marked-alt'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='field'>
+                                                        <label className='label'>Reason</label>
+                                                        <div className='control has-icons-left'>
+                                                            < Select
+                                                                options={this.state.reason}
+                                                                labelField='reason'
+                                                                valueField='rsn_cd'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_rsn_cd: values.rsn_cd });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_rsn_cd'
+                                                                value={this.state.p_rsn_cd}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
+                                                            <span className='icon is-small is-left'>
+                                                                <i className='fas fa-map-marked-alt'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='field'>
+                                                        <label className='label'>Customer</label>
+                                                        <div className='control has-icons-left'>
+                                                            < Select
+                                                                options={this.state.customers}
+                                                                labelField='customer'
+                                                                valueField='cust_id'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_cust_id: values.cust_id });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_cust_id'
+                                                                value={this.state.p_cust_id}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
+                                                            <span className='icon is-small is-left'>
+                                                                <i className='fas fa-map-marked-alt'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='field'>
+                                                        <label className='label'>Status</label>
+                                                        <div className='control has-icons-left'>
+                                                            < Select
+                                                                options={this.state.status}
+                                                                labelField='status'
+                                                                valueField='sta_cd'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_sta_cd: values.sta_cd });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_sta_cd'
+                                                                value={this.state.p_sta_cd}
+                                                                searchable='true'
+                                                                className='input'
+                                                            />
+                                                            <span className='icon is-small is-left'>
+                                                                <i className='fas fa-map-marked-alt'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='field'>
+                                                        <label className='label'>Technician</label>
+                                                        <div className='control has-icons-left'>
+                                                            < Select
+                                                                options={this.state.tech}
+                                                                labelField='Tech'
+                                                                valueField='tech_id'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_tech_id: values.tech_id });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_tech_id'
+                                                                value={this.state.p_tech_id}
+                                                                searchable='true'
+                                                                className='input'
+                                                            />
+                                                            <span className='icon is-small is-left'>
+                                                                <i className='fas fa-map-marked-alt'></i>
+                                                            </span>
+                                                        </div>
                                                     </div>
 
 
