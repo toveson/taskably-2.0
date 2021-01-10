@@ -6,7 +6,8 @@ const workorders = require('./workorders.js');
 const lookup = require('./lookup.js');
 const newUser = require('./newuser.js');
 const users = require('./users.js');
+const login = require('./login.js');
 
 // console.log('testing index');
 
-module.exports = { customers, stats, techs, inventory, workorders, lookup, newUser, users };
+module.exports = { customers, stats, techs, inventory, workorders, lookup, newUser, users, login };
