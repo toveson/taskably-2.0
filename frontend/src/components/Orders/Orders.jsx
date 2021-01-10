@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
-import API from '../../util/api';
+import API from '../../util/api.js';
 
 class Orders extends Component {
     constructor(props) {
@@ -9,7 +9,9 @@ class Orders extends Component {
         this.state = {
             orderData: [],
             currentPage: 1,
-            ordersPerPage: 15
+            ordersPerPage: 15,
+            stats: []
+
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -21,8 +23,13 @@ class Orders extends Component {
     }
 
     componentDidMount() {
+        API.getStatsWO().then(response => {
+            console.log('stats:', response.data);
+            this.setState({ stats: response.data });
+        });
+
         API.getWorkorders().then(response => {
-            console.log('order:', response.data);
+            // console.log('order:', response.data);
             this.setState({ orderData: response.data });
         });
     }
@@ -30,24 +37,21 @@ class Orders extends Component {
     render() {
         const { orderData, currentPage, ordersPerPage } = this.state;
 
-        // Logic for displaying current orders
+        // ***Logic for displaying current orders
         const indexOfLastOrder = currentPage * ordersPerPage;
         const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
         // const currentOrders = orderData.slice(indexOfFirstOrder, indexOfLastOrder);
 
-        console.log(orderData);
+        // console.log(orderData);
         // console.log(currentOrders);
-        console.log(indexOfFirstOrder);
-        console.log(indexOfLastOrder);
+        // console.log(indexOfFirstOrder);
+        // console.log(indexOfLastOrder);
 
-
-
-        // Logic for displaying page numbers
+        // ***Logic for displaying page numbers
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(orderData.length / ordersPerPage); i++) {
             pageNumbers.push(i);
         }
-
 
         const renderPageNumbers = pageNumbers.map(number => {
             return (
@@ -62,7 +66,6 @@ class Orders extends Component {
             );
         });
 
-
         return (
             <div>
                 <Navbar />
@@ -76,28 +79,24 @@ class Orders extends Component {
                             <nav className="level">
                                 <div className="level-left">
                                     <div className="level-item">
-                                        <p className="subtitle is-5" id='Orders-orders'><strong id='Orders-count'> countWO</strong> Total </p>
+                                        <p className="subtitle is-5" id='Orders-orders'><strong id='Orders-count'> {this.state.stats[4]?.count}</strong> Open Work Orders </p>
                                     </div>
                                     <div className="level-item is-hidden-tablet-only">
-                                        {/* {{!-- Disabled for future deployment --}} */}
-                                        {/* {{!-- < div className="field has-addons">
-                                            <p>
-                                            <input type="text" className="input" placeholder="Order#, customer...">
-                                            </p>
-                                            <p className="control">
-                                                <button className="button">Search</button>
-                                            </p>
-                                        </div> --}} */}
                                     </div>
                                 </div>
+                            </nav>
 
-                                {/* {{!-- Disabled for future deployment --}} */}
-                                {/* {{!-- < div className="level-right">
-                  <p className="level-item"><strong>All</strong></p>
-                                <p className="level-item"><a>In progress</a></p>
-                                <p className="level-item"><a>Successful</a></p>
-                                <p className="level-item"><a>Failed</a></p>
-        </div> --}} */}
+                            <nav className="level">
+                                <div className="level-left">
+                                    <p className="level-item">
+                                        <a className="button is-success is-focus" id='buttonTechnicianCreate' href="new-workorder">
+                                            <span className='icon is-small'>
+                                                <i className="fas fa-user-edit"> </i>
+                                            </span>
+                                            <span>Create New Work Order</span>
+                                        </a>
+                                    </p>
+                                </div>
                             </nav>
 
                             <div className="table-container">
