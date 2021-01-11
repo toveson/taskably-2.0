@@ -27,7 +27,8 @@ io.on('connection', function (socket) {
 
     socket.on('new-message', function (data) {
         console.log(data);
-        socket.broadcast.emit('post-message', data.message);
+        // socket.broadcast('post-message', data.message);
+        io.emit('post-message', data.message);
     });
 });
 
