@@ -14,13 +14,17 @@ const api = {
     , postNewTech: (data) => axios.post('/api/techs/new-tech', data)
 
     , getWorkorders: () => axios.get('./api/workorders/')
+    , postNewWO: (data) => axios.post('./api/workorders/new-wo', data)
 
     , getRegion: () => axios.get('./api/lookup/region')
     , getProducts: () => axios.get('./api/lookup/products')
     , getReason: () => axios.get('./api/lookup/reason')
     , getRoles: () => axios.get('./api/lookup/roles')
     , getStatus: () => axios.get('./api/lookup/status')
-    , getState: () => axios.get('./api/lookup/state')
+    , getStates: () => axios.get('./api/lookup/state')
+
+    , getUsers: () => axios.get('./api/users')
+
 };
 
 export default api;

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
-import API from '../../util/api';
+import API from '../../util/api.js';
+import Select from 'react-dropdown-select';
+import _, { toUpper } from 'lodash';
 
 class NewCustomer extends Component {
     constructor(props) {
@@ -17,20 +19,30 @@ class NewCustomer extends Component {
             , p_zip: ''
             , p_phone: ''
             , success: false
+            , states: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        API.getStates().then(response => {
+            // console.log('states: ', response.data);
+            this.setState({ states: response.data });
+        });
+    }
+
     handleInputChange(event) {
+        console.log(event);
         const target = event.target;
         const value = target.value;
         const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
-        console.log('newCustState: ', this.state);
+        this.setState(
+            {
+                [name]: value
+            },
+            () => console.log('newCustState: ', this.state));
     }
 
     handleSubmit(event) {
@@ -77,7 +89,8 @@ class NewCustomer extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Joseph' id='first_name'
                                                                 required
-                                                                name='p_first_name' value={this.state.p_first_name}
+                                                                name='p_first_name'
+                                                                value={this.state.p_first_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-user-edit'></i>
@@ -89,7 +102,8 @@ class NewCustomer extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Anderson' id='last_name'
                                                                 required
-                                                                name='p_last_name' value={this.state.p_last_name}
+                                                                name='p_last_name'
+                                                                value={this.state.p_last_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-user-edit'></i>
@@ -114,7 +128,8 @@ class NewCustomer extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. 123 Main St' id='address'
                                                                 required
-                                                                name='p_address' value={this.state.p_address}
+                                                                name='p_address'
+                                                                value={this.state.p_address.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
@@ -126,7 +141,8 @@ class NewCustomer extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Salt Lake City' id='city'
                                                                 required
-                                                                name='p_city' value={this.state.p_city}
+                                                                name='p_city'
+                                                                value={this.state.p_first_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
@@ -136,12 +152,20 @@ class NewCustomer extends Component {
                                                     <div className='field'>
                                                         <label className='label'>State</label>
                                                         <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. UT' id='state'
-                                                                maxLength='2' style={{ textTransform: 'uppercase' }} required
-                                                                name='p_state' value={this.state.p_state}
-                                                                onChange={this.handleInputChange} />
-                                                            {/* // style={textTransform:'uppercase'} required > */}
-                                                            {/* // style={{}}> {'state'.toUpperCase()} </input> */}
+                                                            < Select
+                                                                options={this.state.states}
+                                                                labelField='st'
+                                                                valueField='st'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_state: values.st });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_state'
+                                                                value={toUpper(this.state.p_state)}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
                                                             </span>
