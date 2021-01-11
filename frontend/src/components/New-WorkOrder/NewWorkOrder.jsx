@@ -4,6 +4,9 @@ import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
 import API from '../../util/api';
 import Select from 'react-dropdown-select';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { addDays, isWeekend } from 'date-fns';
 
 class NewWO extends Component {
     constructor(props) {
@@ -14,7 +17,7 @@ class NewWO extends Component {
             , p_cust_id: ''
             , p_sta_cd: ''
             , p_tech_id: ''
-            , p_appt: ''
+            , p_appt: new Date()
             , success: false
             , products: []
             , reason: []
@@ -48,7 +51,7 @@ class NewWO extends Component {
         });
 
         API.getTechs().then(response => {
-            console.log('tech:', response.data);
+            // console.log('tech:', response.data);
             this.setState({ tech: response.data });
         });
     }
@@ -61,8 +64,9 @@ class NewWO extends Component {
         this.setState(
             {
                 [name]: value
-            },
-            () => console.log('newWOState: ', this.state));
+            }
+            // , () => console.log('newWOState: ', this.state)
+        );
     }
 
     handleSubmit(event) {
@@ -76,12 +80,14 @@ class NewWO extends Component {
             , p_cust_id: ''
             , p_sta_cd: ''
             , p_tech_id: ''
-            , p_appt: ''
+            , p_appt: new Date()
             , success: false
         });
     }
 
     render() {
+        console.log('State: ', this.state);
+
         return (
             <div>
                 <Navbar />
@@ -99,7 +105,15 @@ class NewWO extends Component {
                                                     <div className='field has-text-centered'>
                                                         <img src={CheckmarkLogo} alt='taskably company logo' width='30' /><span
                                                             className='text has-text-weight-bold is-size-3 has-text-justified'>Create New Work Order</span>
-                                                        <h2></h2>
+                                                        <h2>
+                                                            {/* {this.state.p_appt.toString()} */}
+                                                        </h2>
+                                                        {/* <DatePicker
+                                                            selected={this.state.p_appt}
+                                                            onChange={date => this.setState({ p_appt: date })}
+                                                            showTimeSelect
+                                                            dateFormat='Pp'
+                                                        /> */}
                                                     </div>
 
                                                     <div className='field'>
@@ -120,7 +134,7 @@ class NewWO extends Component {
                                                                 className='input' required
                                                             />
                                                             <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
+                                                                <i className='fas fa-satellite-dish'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -143,7 +157,7 @@ class NewWO extends Component {
                                                                 className='input' required
                                                             />
                                                             <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
+                                                                <i className='far fa-question-circle'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -166,7 +180,7 @@ class NewWO extends Component {
                                                                 className='input' required
                                                             />
                                                             <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
+                                                                <i className='fas fa-users'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -189,7 +203,7 @@ class NewWO extends Component {
                                                                 className='input'
                                                             />
                                                             <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
+                                                                <i className='fas fa-chart-line'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -212,7 +226,31 @@ class NewWO extends Component {
                                                                 className='input'
                                                             />
                                                             <span className='icon is-small is-left'>
-                                                                <i className='fas fa-map-marked-alt'></i>
+                                                                <i className='fas fa-tools'></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='field'>
+                                                        <label className='label'>Appointment</label>
+                                                        <div className='control has-icons-left'>
+                                                            <DatePicker
+                                                                className='input'
+                                                                type='text'
+                                                                selected={this.state.p_appt}
+                                                                onChange={date => this.setState({ p_appt: date })}
+                                                                showTimeSelect
+                                                                dateFormat='Pp'
+                                                                timeIntervals={30}
+                                                                minDate={new Date()}
+                                                                maxDate={addDays(new Date(), 365)}
+                                                                // ***exclude dates?????
+                                                                excludeDates={[isWeekend(new Date())]}
+                                                                isClearable
+                                                                useWeekdaysShort={true}
+                                                            />
+                                                            <span className='icon is-small is-left'>
+                                                                <i className='far fa-calendar-alt'></i>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -232,7 +270,7 @@ class NewWO extends Component {
                                                                     <div className='card'>
                                                                         <div className='card-content'>
                                                                             <p className='title'>
-                                                                                Customer successfully created
+                                                                                Work Order successfully created
                                                                             </p>
                                                                         </div>
                                                                     </div>

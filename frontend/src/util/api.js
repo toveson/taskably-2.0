@@ -14,7 +14,7 @@ const api = {
     , postNewTech: (data) => axios.post('/api/techs/new-tech', data)
 
     , getWorkorders: () => axios.get('./api/workorders/')
-    , postWO: (data) => axios.post('./api/workorders/new-wo', data)
+    , postNewWO: (data) => axios.post('./api/workorders/new-wo', data)
 
     , getRegion: () => axios.get('./api/lookup/region')
     , getProducts: () => axios.get('./api/lookup/products')
