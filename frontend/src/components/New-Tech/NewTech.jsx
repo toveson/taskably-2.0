@@ -3,6 +3,8 @@ import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
 import API from '../../util/api';
+import Select from 'react-dropdown-select';
+import _ from 'lodash';
 
 class NewTech extends Component {
     constructor(props) {
@@ -15,9 +17,17 @@ class NewTech extends Component {
             , p_rgn_cd: ''
             , p_phone: ''
             , success: false
+            , region: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        API.getRegion().then(response => {
+            // console.log('region: ', response.data);
+            this.setState({ region: response.data });
+        });
     }
 
     handleInputChange(event) {
@@ -25,10 +35,11 @@ class NewTech extends Component {
         const value = target.value;
         const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
-        console.log('newTechState: ', this.state);
+        this.setState(
+            {
+                [name]: value
+            },
+            () => console.log('newTechState: ', this.state));
     }
 
     handleSubmit(event) {
@@ -48,6 +59,7 @@ class NewTech extends Component {
     }
 
     render() {
+        // console.log('fname: ', this.state.p_first_name.split(' ').map(_.capitalize).join(' '));
         return (
             <div>
                 <Navbar />
@@ -73,7 +85,8 @@ class NewTech extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Joseph' id='first_name'
                                                                 required
-                                                                name='p_first_name' value={this.state.p_first_name}
+                                                                name='p_first_name'
+                                                                value={this.state.p_first_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-user-edit'></i>
@@ -85,7 +98,8 @@ class NewTech extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Anderson' id='last_name'
                                                                 required
-                                                                name='p_last_name' value={this.state.p_last_name}
+                                                                name='p_last_name'
+                                                                value={this.state.p_last_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-user-edit'></i>
@@ -108,12 +122,20 @@ class NewTech extends Component {
                                                     <div className='field'>
                                                         <label className='label'>Region</label>
                                                         <div className='control has-icons-left'>
-                                                            <input className='input' type='text' placeholder='e.g. PAC' id='region'
-                                                                maxLength='3' style={{ textTransform: 'uppercase' }} required
-                                                                name='p_rgn_cd' value={this.state.p_rgn_cd}
-                                                                onChange={this.handleInputChange} />
-                                                            {/* // style={textTransform:'uppercase'} required > */}
-                                                            {/* // style={{}}> {'state'.toUpperCase()} </input> */}
+                                                            < Select
+                                                                options={this.state.region}
+                                                                labelField='region'
+                                                                valueField='rgn_cd'
+                                                                onChange={([values]) => {
+                                                                    // console.log(values);
+                                                                    this.setState({ p_rgn_cd: values.rgn_cd });
+                                                                }}
+                                                                dropdownPosition="auto"
+                                                                name='p_region'
+                                                                value={this.state.p_rgn_cd}
+                                                                searchable='true'
+                                                                className='input' required
+                                                            />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
                                                             </span>

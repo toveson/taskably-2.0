@@ -1,16 +1,21 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import ChatWindow from './Chatwindow';
 import SocketClient from 'socket.io-client';
 
-function SocketIo () {
+function SocketIo() {
+    const [message, setMessage] = useState();
     let socket = SocketClient('http://localhost:8080');
 
-    socket.on('hello', function() {
-        console.log('hello from the socket');
+
+    socket.emit('new-message', { message });
+
+    socket.on('post-message', function (data) {
+        console.log(data);
     });
 
-    return(
-        <p>Hello</p>
+    return (
+
+        <ChatWindow onIdSubmit={setMessage} />
     );
 }
 

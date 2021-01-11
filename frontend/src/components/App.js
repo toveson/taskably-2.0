@@ -14,6 +14,8 @@ import NewCustomer from './New-Customer/NewCustomer';
 import NewTech from './New-Tech/NewTech';
 import CustomerPortal from './CustomerPortal/Customer-Portal';
 import Homepage from './Homepage/Homepage';
+import NewWO from './New-WorkOrder/NewWorkOrder';
+
 
 class App extends Component {
     render() {
@@ -37,6 +39,7 @@ class App extends Component {
                         <Route path='/techs' component={Techs} />
                         <Route path='/new-tech' component={NewTech} />
                         <Route path='/orders' component={Orders} />
+                        <Route path='/new-workorder' component={NewWO} />
                     </div>
                 </BrowserRouter>
             </>
