@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
 import API from '../../util/api';
 import Select from 'react-dropdown-select';
+import _ from 'lodash';
 
 class NewTech extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class NewTech extends Component {
 
     componentDidMount() {
         API.getRegion().then(response => {
-            console.log('region: ', response.data);
+            // console.log('region: ', response.data);
             this.setState({ region: response.data });
         });
     }
@@ -58,6 +59,7 @@ class NewTech extends Component {
     }
 
     render() {
+        // console.log('fname: ', this.state.p_first_name.split(' ').map(_.capitalize).join(' '));
         return (
             <div>
                 <Navbar />
@@ -83,7 +85,8 @@ class NewTech extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Joseph' id='first_name'
                                                                 required
-                                                                name='p_first_name' value={this.state.p_first_name}
+                                                                name='p_first_name'
+                                                                value={this.state.p_first_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-user-edit'></i>
@@ -95,7 +98,8 @@ class NewTech extends Component {
                                                         <div className='control has-icons-left'>
                                                             <input className='input' type='text' placeholder='e.g. Anderson' id='last_name'
                                                                 required
-                                                                name='p_last_name' value={this.state.p_last_name}
+                                                                name='p_last_name'
+                                                                value={this.state.p_last_name.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-user-edit'></i>
@@ -132,10 +136,6 @@ class NewTech extends Component {
                                                                 searchable='true'
                                                                 className='input' required
                                                             />
-                                                            {/* <input className='input' type='text' placeholder='e.g. PAC' id='region'
-                                                                maxLength='3' style={{ textTransform: 'uppercase' }} required
-                                                                name='p_rgn_cd' value={this.state.p_rgn_cd}
-                                                                onChange={this.handleInputChange} /> */}
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
                                                             </span>
