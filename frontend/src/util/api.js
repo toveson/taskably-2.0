@@ -25,6 +25,9 @@ const api = {
 
     , getUsers: () => axios.get('./api/users')
 
+    , getReviews: () => axios.get('./api/reviews')
+    , postNewReview: (data) => axios.post('/api/reviews/new-review', data)
+
 };
 
 export default api;
