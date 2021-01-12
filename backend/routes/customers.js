@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/new-customer', (req, res) => {
-    let sql = 'call newCustomer(?,?,?,?,?,?,?,?)';
+    const sql = 'call newCustomer(@cust_id,?,?,?,?,?,?,?,?); select concat(\'cust \', @cust_id,\' added successfuly\') as new_cust;';
     console.log(req.body);
     db.query(sql, [req.body.p_first_name, req.body.p_last_name, req.body.p_email, req.body.p_address, req.body.p_city, req.body.p_state, req.body.p_zip, req.body.p_phone]
         , (err, rows) => {
