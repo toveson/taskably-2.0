@@ -7,6 +7,7 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     const sql = 'SELECT * FROM v_techs';
+    console.log(req.body);
     db.query(sql, (err, rows) => {
         if (err) {
             throw err;

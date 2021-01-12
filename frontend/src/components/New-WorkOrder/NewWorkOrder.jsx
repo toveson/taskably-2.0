@@ -6,7 +6,7 @@ import API from '../../util/api';
 import Select from 'react-dropdown-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { addDays, isWeekend } from 'date-fns';
+import { addDays, setHours } from 'date-fns';
 
 class NewWO extends Component {
     constructor(props) {
@@ -17,13 +17,14 @@ class NewWO extends Component {
             , p_cust_id: ''
             , p_sta_cd: ''
             , p_tech_id: ''
-            , p_appt: new Date()
+            , p_appt: null
             , success: false
             , products: []
             , reason: []
             , customers: []
             , status: []
             , tech: []
+            , cust_region: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -85,9 +86,24 @@ class NewWO extends Component {
         });
     }
 
+    filterDays = (date) => {
+        // Disable Weekends
+        if (date.getDay() === 0 || date.getDay() === 6) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //     filterTech = (this.state.cust_region) => {
+    //     const tech = this.state.tech;
+    //     console.log('tech: ', tech);
+    //     const filtered = tech.filter(this.state.cust_region);
+    //     console.log('filtered: ', filtered);
+    // }
+
     render() {
         console.log('State: ', this.state);
-
         return (
             <div>
                 <Navbar />
@@ -106,14 +122,8 @@ class NewWO extends Component {
                                                         <img src={CheckmarkLogo} alt='taskably company logo' width='30' /><span
                                                             className='text has-text-weight-bold is-size-3 has-text-justified'>Create New Work Order</span>
                                                         <h2>
-                                                            {/* {this.state.p_appt.toString()} */}
                                                         </h2>
-                                                        {/* <DatePicker
-                                                            selected={this.state.p_appt}
-                                                            onChange={date => this.setState({ p_appt: date })}
-                                                            showTimeSelect
-                                                            dateFormat='Pp'
-                                                        /> */}
+
                                                     </div>
 
                                                     <div className='field'>
@@ -171,7 +181,7 @@ class NewWO extends Component {
                                                                 valueField='cust_id'
                                                                 onChange={([values]) => {
                                                                     // console.log(values);
-                                                                    this.setState({ p_cust_id: values.cust_id });
+                                                                    this.setState({ p_cust_id: values.cust_id, cust_region: values.region });
                                                                 }}
                                                                 dropdownPosition="auto"
                                                                 name='p_cust_id'
@@ -241,11 +251,12 @@ class NewWO extends Component {
                                                                 onChange={date => this.setState({ p_appt: date })}
                                                                 showTimeSelect
                                                                 dateFormat='Pp'
-                                                                timeIntervals={30}
+                                                                timeIntervals={120}
                                                                 minDate={new Date()}
                                                                 maxDate={addDays(new Date(), 365)}
-                                                                // ***exclude dates?????
-                                                                excludeDates={[isWeekend(new Date())]}
+                                                                minTime={setHours(0, 10)}
+                                                                maxTime={setHours(0, 18)}
+                                                                filterDate={this.filterDays}
                                                                 isClearable
                                                                 useWeekdaysShort={true}
                                                             />
