@@ -16,4 +16,15 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/inv-installed', (req, res) => {
+    const sql = 'SELECT * FROM v_invInstalled';
+    db.query(sql, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        // console.log(rows);
+        res.send(rows);
+    });
+});
+
 module.exports = router;
