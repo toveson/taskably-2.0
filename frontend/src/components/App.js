@@ -13,7 +13,6 @@ import Orders from './Orders/Orders';
 import NewCustomer from './New-Customer/NewCustomer';
 import NewTech from './New-Tech/NewTech';
 import CustomerPortal from './CustomerPortal/Customer-Portal';
-import Homepage from './Homepage/Homepage';
 import NewWO from './New-WorkOrder/NewWorkOrder';
 
 
@@ -33,7 +32,6 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route exact path='/' component={Login} />
-                    <Route path='/homepage' component={Homepage} />
                     <Route path='/customer-portal' component={CustomerPortal} />
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/inventory' component={Inventory} />
