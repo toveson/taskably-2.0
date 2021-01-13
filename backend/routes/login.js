@@ -1,7 +1,8 @@
 const db = require('../config/connection.js');
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 // login route
 router.post('/', (req, res) => {
@@ -29,8 +30,11 @@ router.post('/', (req, res) => {
             // res.send(rows);
             const bcomapare = await bcrypt.compare(password, user.password);
             if (bcomapare) {
+                const userJWT = 'username: ' + username + role;
                 // compare password (bcrypt)
                 // sign jws token with (username, role, email) and send it back
+                const accessToken = jwt.sign(userJWT, process.env.ACCESS_TOKEN_SECRET);
+                res.json({accessToken: accessToken});
                 res.send('Success');
             } else {
                 // if password is wrong return login failed

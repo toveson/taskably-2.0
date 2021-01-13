@@ -1,12 +1,12 @@
 const db = require('../config/connection.js');
 const router = require('express').Router();
 
-// router.get('/test', (req, res) => {
-//     res.send('testing customers');
-// });
+router.get('/test', (req, res) => {
+    res.send('testing reviews');
+});
 
 router.get('/', (req, res) => {
-    const sql = 'SELECT * FROM v_customers';
+    const sql = 'SELECT * FROM v_review';
     db.query(sql, (err, rows) => {
         if (err) {
             throw err;
@@ -16,10 +16,9 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/new-customer', (req, res) => {
-    const sql = 'call newCustomer(@cust_id,?,?,?,?,?,?,?,?); select concat(\'cust \', @cust_id,\' added successfuly\') as new_cust;';
-    console.log(req.body);
-    db.query(sql, [req.body.p_first_name, req.body.p_last_name, req.body.p_email, req.body.p_address, req.body.p_city, req.body.p_state, req.body.p_zip, req.body.p_phone]
+router.post('/new-review', (req, res) => {
+    let sql = 'call newReview(@rev_id,?,?,?,?); select concat(\'Review \', @rev_id,\' added successfully\') as new_review;';
+    db.query(sql, [req.body.p_cust_id, req.body.p_wo_id, req.body.p_rating, req.body.p_review]
         , (err, rows) => {
             if (err) {
                 console.error(err.message);

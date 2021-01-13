@@ -25,7 +25,6 @@ io.on('connection', function (socket) {
     });
 });
 
-
 app.use('/api/customers', routes.customers);
 app.use('/api/stats', routes.stats);
 app.use('/api/techs', routes.techs);
@@ -35,6 +34,7 @@ app.use('/api/lookup', routes.lookup);
 app.use('/api/newuser', routes.newUser);
 app.use('/api/users', routes.users);
 app.use('/api/login', routes.login);
+app.use('/api/reviews', routes.reviews);
 
 //  setting up server
 const PORT = process.env.PORT || 8081;

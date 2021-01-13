@@ -33,7 +33,7 @@ class NewCustomer extends Component {
     }
 
     handleInputChange(event) {
-        console.log(event);
+        // console.log(event);
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -41,8 +41,9 @@ class NewCustomer extends Component {
         this.setState(
             {
                 [name]: value
-            },
-            () => console.log('newCustState: ', this.state));
+            }
+            // , () => console.log('newCustState: ', this.state)
+        );
     }
 
     handleSubmit(event) {
@@ -142,7 +143,7 @@ class NewCustomer extends Component {
                                                             <input className='input' type='text' placeholder='e.g. Salt Lake City' id='city'
                                                                 required
                                                                 name='p_city'
-                                                                value={this.state.p_first_name.split(' ').map(_.capitalize).join(' ')}
+                                                                value={this.state.p_city.split(' ').map(_.capitalize).join(' ')}
                                                                 onChange={this.handleInputChange} />
                                                             <span className='icon is-small is-left'>
                                                                 <i className='fas fa-map-marked-alt'></i>
