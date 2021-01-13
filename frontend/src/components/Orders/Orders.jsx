@@ -24,7 +24,7 @@ class Orders extends Component {
 
     componentDidMount() {
         API.getStatsWO().then(response => {
-            console.log('stats:', response.data);
+            // console.log('stats:', response.data);
             this.setState({ stats: response.data });
         });
 
