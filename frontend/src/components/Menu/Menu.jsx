@@ -4,6 +4,7 @@ import CustomersIcon from '../../assets/customers-icon.png';
 import OrdersIcon from '../../assets/orders-icon.png';
 import InventoryIcon from '../../assets/inventory-icon.png';
 import DashboardIcon from '../../assets/dashboard-icon.png';
+import { Link } from 'react-router-dom';
 
 const inlineStyle = {
     fontSize: 25
@@ -18,8 +19,8 @@ class Menu extends Component {
                     <ul className='menu-list'>
                         {/* {{!-- Dashboard menu link --}} */}
                         <li>
-                            {/* <a className='is-active' href='index'> */}
-                            <a className='' href='dashboard'>
+                            {/* <a className='is-active' to='/index'> */}
+                            <Link className='' to='/dashboard'>
                                 <span className='icon is-smaller'>
                                     {/* <i className='fa fa-tachometer'></i> */}
                                     <img src={DashboardIcon} />
@@ -27,11 +28,11 @@ class Menu extends Component {
                                 <span className='menuLink' style={inlineStyle}>
                                     Dashboard
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* {{!-- Inventory menu link --}} */}
                         <li>
-                            <a href='inventory'>
+                            <Link to='/inventory'>
                                 <span className='icon is-smaller'>
                                     {/* <i className='fa fa-book'></i> */}
                                     <img src={InventoryIcon} />
@@ -39,11 +40,11 @@ class Menu extends Component {
                                 <span className='menuLink' style={inlineStyle}>
                                     Inventory
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* {{!-- Customers menu link --}} */}
                         <li>
-                            <a href='customers'>
+                            <Link to='/customers'>
                                 <span className='icon is-smaller'>
                                     {/* <i className='fa fa-address-book'></i> */}
                                     <img src={CustomersIcon} />
@@ -52,11 +53,11 @@ class Menu extends Component {
                                 <span className='menuLink' style={inlineStyle}>
                                     Customers
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* {{!-- Technicians menu link --}} */}
                         <li>
-                            <a href='techs' >
+                            <Link to='/techs' >
                                 <span className='icon is-smaller'>
                                     <img src={TechsIcon4} />
                                     {/* <i className='fa fa-hard-hat'></i> */}
@@ -64,11 +65,11 @@ class Menu extends Component {
                                 <span className='menuLink' style={inlineStyle}>
                                     Technicians
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* {{!-- Orders menu link --}} */}
                         <li>
-                            <a href='orders'>
+                            <Link to='/orders'>
                                 <span className='icon is-smaller'>
                                     <img src={OrdersIcon} />
                                     {/* <i className='fa fa-clipboard-list'></i> */}
@@ -76,7 +77,7 @@ class Menu extends Component {
                                 <span className='menuLink' style={inlineStyle}>
                                     Work Orders
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </nav>
