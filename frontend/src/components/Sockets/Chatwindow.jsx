@@ -6,10 +6,12 @@ import { Form, Container, Button } from 'react-bootstrap';
 function ChatWindow({ message, sendMessage, setMessage }) {
     const messageRef = useRef();
 
+    //function to handle the change in the input field
     function handleChange(e) {
         setMessage(e.target.value);
     }
 
+    //function to take the value of the form ro be used later
     function handleSubmit(e) {
         e.preventDefault();
         sendMessage();
@@ -17,7 +19,6 @@ function ChatWindow({ message, sendMessage, setMessage }) {
 
     return (
         <Container className="align-items-center d-flex">
-            <div></div>
             <Form className="w-100">
                 <Form.Group>
                     <Form.Control type="text" ref={messageRef} value={message} onChange={handleChange} />

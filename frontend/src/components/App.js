@@ -17,8 +17,9 @@ import Homepage from './Homepage/Homepage';
 import NewWO from './New-WorkOrder/NewWorkOrder';
 
 
-
 class App extends Component {
+
+
     render() {
         // console.log('this.props: ', this.props);
 
@@ -27,23 +28,24 @@ class App extends Component {
         // });
 
         return (
-            <>
-                <BrowserRouter>
-                    <div>
-                        <Route exact path='/' component={Login} />
-                        <Route path='/homepage' component={Homepage} />
-                        <Route path='/customer-portal' component={CustomerPortal} />
-                        <Route path='/dashboard' component={Dashboard} />
-                        <Route path='/inventory' component={Inventory} />
-                        <Route path='/customers' component={Customers} />
-                        <Route path='/new-customer' component={NewCustomer} />
-                        <Route path='/techs' component={Techs} />
-                        <Route path='/new-tech' component={NewTech} />
-                        <Route path='/orders' component={Orders} />
-                        <Route path='/new-workorder' component={NewWO} />
-                    </div>
-                </BrowserRouter>
-            </>
+
+
+            <BrowserRouter>
+                <div>
+                    <Route exact path='/' component={Login} />
+                    <Route path='/homepage' component={Homepage} />
+                    <Route path='/customer-portal' component={CustomerPortal} />
+                    <Route path='/dashboard' component={Dashboard} />
+                    <Route path='/inventory' component={Inventory} />
+                    <Route path='/customers' component={Customers} />
+                    <Route path='/new-customer' component={NewCustomer} />
+                    <Route path='/techs' component={Techs} />
+                    <Route path='/new-tech' component={NewTech} />
+                    <Route path='/orders' component={Orders} />
+                    <Route path='/new-workorder' component={NewWO} />
+                </div>
+            </BrowserRouter>
+
         );
     }
 }
