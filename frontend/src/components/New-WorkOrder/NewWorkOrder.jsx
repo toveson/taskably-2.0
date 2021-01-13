@@ -233,7 +233,7 @@ class NewWO extends Component {
 
                                                     <div className='field'>
                                                         <label className='label'>Appointment</label>
-                                                        <div className='control has-icons-left'>
+                                                        <div className='control has-icons-left is-fullhd' id='datepicker'>
                                                             <DatePicker
                                                                 className='input'
                                                                 type='text'
