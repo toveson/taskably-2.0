@@ -85,7 +85,7 @@ body {
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -283,20 +283,19 @@ body {
 @media screen and (max-aspect-ratio: 1920/1080) {
     .video-container>video {
         height: 100%;
+        object-fit: cover;
     }
 }
 
 @media screen and (min-aspect-ratio: 1920/1080) {
     .video-container>video {
         width: 100%;
+        object-fit: cover;
     }
 }
 
 @media (max-width: 1440px) {
     .video-container>video {
-        /* display: none; */
-
-        /* transform: scale(1.5); */
         object-fit: cover;
     }
 }
