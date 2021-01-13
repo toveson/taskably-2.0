@@ -25,7 +25,6 @@ io.on('connection', function (socket) {
     });
 });
 
-
 app.use('/api/customers', routes.customers);
 app.use('/api/stats', routes.stats);
 app.use('/api/techs', routes.techs);
