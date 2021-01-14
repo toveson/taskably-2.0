@@ -42,7 +42,7 @@ class NewWO extends Component {
         });
 
         API.getCustomers().then(response => {
-            // console.log('customers: ', response.data);
+            console.log('customers: ', response.data);
             this.setState({ customers: response.data });
         });
 
@@ -52,7 +52,7 @@ class NewWO extends Component {
         });
 
         API.getTechs().then(response => {
-            // console.log('tech:', response.data);
+            console.log('tech:', response.data);
             this.setState({ tech: response.data });
         });
     }
@@ -94,13 +94,6 @@ class NewWO extends Component {
             return true;
         }
     }
-
-    //     filterTech = (this.state.cust_region) => {
-    //     const tech = this.state.tech;
-    //     console.log('tech: ', tech);
-    //     const filtered = tech.filter(this.state.cust_region);
-    //     console.log('filtered: ', filtered);
-    // }
 
     render() {
         console.log('State: ', this.state);
@@ -222,7 +215,11 @@ class NewWO extends Component {
                                                         <label className='label'>Technician</label>
                                                         <div className='control has-icons-left'>
                                                             < Select
-                                                                options={this.state.tech}
+                                                                options={this.state.tech.filter(tech1 => {
+                                                                    // console.log('Tech: ', tech1);
+                                                                    return tech1.Region === this.state.cust_region;
+
+                                                                })}
                                                                 labelField='Tech'
                                                                 valueField='tech_id'
                                                                 onChange={([values]) => {
