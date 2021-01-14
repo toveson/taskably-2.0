@@ -17,14 +17,15 @@ import NewWO from './New-WorkOrder/NewWorkOrder';
 
 
 class App extends Component {
-
+    componentDidMount() {
+        API.getUserJWT(localStorage.getItem('JWT')).then(response => {
+            console.log('response:', response);
+        });
+    }
 
     render() {
         // console.log('this.props: ', this.props);
 
-        API.getUserJWT().then(response => {
-            console.log('response:', response);
-        });
 
         return (
 
@@ -43,6 +44,10 @@ class App extends Component {
                     <Route path='/new-workorder' component={NewWO} />
                 </div>
             </BrowserRouter>
+
+        // token inside ()
+        // after route
+        // , getUserJWT: (token) => axios.get('/api/login', {headers: { authorization: localStorage.getItem('JWT'); }})
 
         );
     }

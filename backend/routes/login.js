@@ -11,16 +11,16 @@ router.get('/', authenticateToken, (req, res) => {
 
 // login route
 router.post('/', (req, res) => {
-    const username = req.body.username;
+    // const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
-    const role = req.body.role;
+    // const role = req.body.role;
 
-    console.log(username, password, email, role);
+    console.log(password, email);
     // res.json(tempdb);
 
     // search db for email
-    if (username === null) {
+    if (email === null) {
         return res.status(400).send('Login failed');
     }
     // if email is there then compare
@@ -30,17 +30,19 @@ router.post('/', (req, res) => {
             if (err) {
                 throw err;
             }
-            console.log(rows[0]);
+            // if the rows are empty I need to handle it
+            console.log(rows);
             const user = rows[0];
+            console.log(user);
             // res.send(rows);
             const bcomapare = await bcrypt.compare(password, user.password);
             if (bcomapare) {
-                const userJWT = { username, role };
+                const userJWT = { email, role: user.role, username: user.username, userID: user.user_id};
                 // compare password (bcrypt)
                 // sign jws token with (username, role, email) and send it back
                 const accessToken = jwt.sign(userJWT, process.env.ACCESS_TOKEN_SECRET);
                 res.json({accessToken: accessToken});
-                res.send('Success');
+                // res.send('Success');
             } else {
                 // if password is wrong return login failed
                 res.send('Login failed');

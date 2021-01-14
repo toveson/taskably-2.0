@@ -17,9 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '../frontend/build/index.html'));
-});
 
 io.on('connection', function (socket) {
     console.log('New User Connected');
@@ -42,6 +39,9 @@ app.use('/api/users', routes.users);
 app.use('/api/login', routes.login);
 app.use('/api/reviews', routes.reviews);
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../frontend/build/index.html'));
+});
 //  setting up server
 const PORT = process.env.PORT || 8081;
 
