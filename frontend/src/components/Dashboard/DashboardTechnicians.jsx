@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../util/api';
-import SocketIo from '../Sockets/Sockets';
+
 
 
 class DashboardTechnicians extends Component {
@@ -26,7 +26,6 @@ class DashboardTechnicians extends Component {
                 {/* DashboardTechnicians */}
                 <div className="card">
                     <div className="card-content cardDashboard">
-                        <SocketIo></SocketIo>
                         <h2 className="title is-4"><u>Technicians</u></h2>
                         {
                             tech.slice(0, 3).map((tech) => (
