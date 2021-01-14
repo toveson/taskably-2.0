@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ChatWindow from './Chatwindow';
 import SocketClient from 'socket.io-client';
-// import { UserContext } from '../App';
 
 
 
 function SocketIo() {
+
     const [message, setMessage] = useState('');
     const [socket, setSocket] = useState();
     const [newMessage, setNewMessage] = useState([]);
-
-    // const val = useContext(UserContext);
-    // console.log('Hello Im the val', val);
 
     function addMessage(messageToAdd) {
         setNewMessage((oldState) => {
@@ -29,6 +26,7 @@ function SocketIo() {
         return () => newSocket.off();
     }, []);
 
+    //send the message to the backend
     const sendMessage = () => {
         if (socket) {
             console.log('Send Message');

@@ -24,7 +24,6 @@ function ChatWindow({ message, sendMessage, setMessage }) {
                     <Form.Control placeholder='Chat with a customer service representative...' type="text" ref={messageRef} value={message} onChange={handleChange} style={{width: '300px'}} />
                     <Button type="submit" className="mr-2" onClick={handleSubmit} style={{width: '50px'}}>Chat</Button>
                 </Form.Group>
-
             </Form>
         </Container>
     );
