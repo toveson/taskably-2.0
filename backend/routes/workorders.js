@@ -31,7 +31,7 @@ router.post('/new-wo', (req, res) => {
 
 router.put('/upd-wo/:id', (req, res) => {
     const sql = 'call updWO(?,?,?,?,?,?,?)';
-    db.query(sql, (err, rows) => {
+    db.query(sql, [req.params.id, req.body.p_pr_cd, req.body.p_rsn_cd, req.body.p_cust_id, req.body.p_sta_cd, req.body.p_tech_id, req.body.p_appt], (err, rows) => {
         if (err) {
             console.error(err.message);
             return res.status(500).send(err);
