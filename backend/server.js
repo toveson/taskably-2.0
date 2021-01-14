@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express');
 const app = express();
+const path = require('path');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
     cors: {
@@ -14,6 +15,11 @@ const routes = require('./routes/index.js');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '../frontend/build/index.html'));
+});
 
 io.on('connection', function (socket) {
     console.log('New User Connected');
@@ -34,6 +40,7 @@ app.use('/api/lookup', routes.lookup);
 app.use('/api/newuser', routes.newUser);
 app.use('/api/users', routes.users);
 app.use('/api/login', routes.login);
+app.use('/api/reviews', routes.reviews);
 
 //  setting up server
 const PORT = process.env.PORT || 8081;

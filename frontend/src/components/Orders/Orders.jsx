@@ -24,7 +24,7 @@ class Orders extends Component {
 
     componentDidMount() {
         API.getStatsWO().then(response => {
-            console.log('stats:', response.data);
+            // console.log('stats:', response.data);
             this.setState({ stats: response.data });
         });
 
@@ -89,7 +89,7 @@ class Orders extends Component {
                             <nav className="level">
                                 <div className="level-left">
                                     <p className="level-item">
-                                        <a className="button is-success is-focus" id='buttonTechnicianCreate' href="new-workorder">
+                                        <a className="button is-success is-focus" id='buttonCustomerCreate' href="new-workorder">
                                             <span className='icon is-small'>
                                                 <i className="fas fa-user-edit"> </i>
                                             </span>
@@ -115,7 +115,7 @@ class Orders extends Component {
                                             <th>Appt. Time</th>
                                             <th>Customer</th>
                                             <th>Cust. Phone</th>
-                                            <th>Address</th>
+                                            {/* <th>Address</th> */}
                                             <th>City</th>
                                             <th>State</th>
                                         </tr>
@@ -134,7 +134,7 @@ class Orders extends Component {
                                             <th>Appt. Time</th>
                                             <th>Customer</th>
                                             <th>Cust. Phone</th>
-                                            <th>Address</th>
+                                            {/* <th>Address</th> */}
                                             <th>City</th>
                                             <th>State</th>
                                         </tr>
@@ -159,13 +159,13 @@ class Orders extends Component {
                                                     </td>
                                                     <td>{orderData.products}</td>
                                                     <td>{orderData.status}</td>
-                                                    <td>{orderData.reason}</td>
+                                                    <td className={orderData.color}>{orderData.reason}</td>
                                                     <td>{orderData.appt_date}</td>
                                                     <td>{orderData.appt_time}</td>
                                                     <td>{orderData.customer}</td>
                                                     <td>{orderData.cust_phone}</td>
-                                                    <td>{orderData.address}</td>
-                                                    <td>{orderData.city}</td>
+                                                    {/* <td>{orderData.address}</td> */}
+                                                    < td > {orderData.city}</td>
                                                     <td>{orderData.state}</td>
                                                 </tr>
                                             ))

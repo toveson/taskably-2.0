@@ -9,6 +9,7 @@ const api = {
     , getStatsInv: () => axios.get('./api/stats/getTotInv')
 
     , getInv: () => axios.get('./api/inventory/')
+    , getInvInstalled: () => axios.get('./api/inventory/inv-installed')
 
     , getTechs: () => axios.get('./api/techs/')
     , postNewTech: (data) => axios.post('/api/techs/new-tech', data)
@@ -25,6 +26,9 @@ const api = {
 
     , getUsers: () => axios.get('./api/users')
     , getUserJWT: () => axios.get('./api/login.js')
+
+    , getReviews: () => axios.get('./api/reviews')
+    , postNewReview: (data) => axios.post('/api/reviews/new-review', data)
 
 };
 

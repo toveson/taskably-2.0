@@ -5,10 +5,11 @@ body {
     background-color: #485461;
     background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
     min-height: 100vh;
-    width: 100%;
+    min-width:fit-content; 
+    /* width: 100vw; */
 }
 
-/* ==Test CSS== */
+/* ==Homepage== */
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
@@ -84,41 +85,43 @@ body {
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    min-height: 100%;
-    background: #02be4a;
+    width: 100vw;
+    min-height: 100vh;
+    background: #016d2a;
+    /* object-fit: cover; */
     mix-blend-mode: overlay;
+    object-fit: contain;
 }
 
 .homepage-text {
     position: relative;
     text-align: right;
     z-index: 10;
-    padding: 63%;
+    /* padding: 63%;
     padding-right: 115px;
-    padding-top: 250px;
+    padding-top: 250px; */
 
 }
 
 .homepage-text h2 {
-    font-family: Permanent Marker;
-    letter-spacing: 6px;
-    position: relative;
+    font-family: Permanent Marker, cursive;
+    letter-spacing: 4px;
+    /* position: relative; */
     font-size: 6em;
     font-weight: 10px;
     /* font-weight:800px; */
-    color: #fff;
+    color: rgb(204, 102, 7);
     line-height: 1em;
     text-transform: uppercase;
     /* padding-right: 45px; */
     /* text-align: right; */
     /* padding-right: 45px;
   padding-top: 250px; */
-    background: rgba(233, 221, 218, 0.13);
-    padding-right: 10px;
+    background: rgba(233, 221, 218, 0.20);
+    /* padding-right: 10px; */
 }
 
 .homepage-text h3 {
@@ -134,7 +137,7 @@ body {
     padding-top: 4px;
     text-align: right;
     margin-top: 10px;
-    margin-left: 165px;
+    /* margin-left: 165px; */
 }
 
 .homepage-text p {
@@ -233,10 +236,10 @@ body {
 
 @media (max-width: 991px) {
 
-    .showcase,
+    /* .showcase,
     .showcase header {
         padding: 40px;
-    }
+    } */
 
     .homepage-text h2 {
         font-size: 3em;
@@ -247,11 +250,6 @@ body {
     }
 }
 
-
-
-
-
-/* ==Homepage Begin== */
 .video-container {
     /* position: absolute;
     top: -0%;
@@ -281,31 +279,38 @@ body {
 @media screen and (max-aspect-ratio: 1920/1080) {
     .video-container>video {
         height: 100%;
+        object-fit: cover;
     }
 }
 
 @media screen and (min-aspect-ratio: 1920/1080) {
     .video-container>video {
         width: 100%;
+        object-fit: cover;
     }
 }
 
 @media (max-width: 1440px) {
     .video-container>video {
-        /* display: none; */
-
-        transform: scale(1.5);
-        object-fit: contain;
+        object-fit: cover;
     }
 }
+
+
 
 /* ==Homepage End== */
 
 /* ==Login Begin== */
 #login-form {
     background-color: #2d3436;
-    background-image: linear-gradient(315deg, #2d3436 50%, #000000 75%);
+    background-image: linear-gradient(315deg, #2d3436 50%, #302f2f 75%);
     color: rgb(233, 230, 230);
+    /* padding: 15px; */
+}
+
+.container.login-container {
+    margin: 50px;
+
 }
 
 #login-button {
@@ -404,10 +409,8 @@ body {
 /* ==Customers Begins== */
 .table {
     border-radius: 5px;
-
     background-color: #000000c2;
     background-image: linear-gradient(360deg, #888585 0%, #a3a0a0 5%);
-
 }
 
 #customers-H1 {
@@ -444,6 +447,11 @@ body {
     color: rgb(212, 209, 209)
 }
 
+#buttonOrderCreate {
+    background-color: #57f169e3;
+    font-weight: 600;
+    border-width: 0px;
+}
 /* ==Orders End== */
 
 
@@ -482,3 +490,4 @@ body {
 }
 
 /* ==Table Ends== */
+

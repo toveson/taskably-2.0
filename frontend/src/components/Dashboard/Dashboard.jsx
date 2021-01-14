@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DashboardAssigned from './DashboardAssigned';
 import DashboardPending from './DashboardPending';
 import DashboardTotal from './DashboardTotal';
-import DashboardDate from './DashboardDate';
+// import DashboardDate from './DashboardDate';
 import DashboardCompleted from './DashboardCompleted';
 import DashboardCalls from './DashboardCalls';
 import DashboardInventory from './DashboardInventory';
@@ -23,12 +23,12 @@ class Dashboard extends Component {
 
     componentDidMount() {
         API.getStatsWO().then(response => {
-            console.log('stats:', response.data);
+            // console.log('stats:', response.data);
             this.setState({ stats: response.data });
         });
 
         API.getStatsRsn().then(response => {
-            console.log('rsn: ', response.data);
+            // console.log('rsn: ', response.data);
             this.setState({ rsn: response.data });
         });
     }
@@ -45,7 +45,7 @@ class Dashboard extends Component {
                         <div className="column">
                             <div className="level">
                                 <div className="level-left">
-                                    <DashboardDate />
+                                    {/* <DashboardDate /> */}
                                 </div>
 
                                 {/* {{!-- Disabled for future deployment --}} */}
