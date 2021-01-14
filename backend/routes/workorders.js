@@ -29,4 +29,16 @@ router.post('/new-wo', (req, res) => {
         });
 });
 
+router.put('/upd-wo/:id', (req, res) => {
+    const sql = 'call updWO(?,?,?,?,?,?,?)';
+    db.query(sql, (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).send(err);
+        }
+        // console.log(rows);
+        res.send(rows);
+    });
+});
+
 module.exports = router;
