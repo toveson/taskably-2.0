@@ -9,7 +9,7 @@ body {
     /* width: 100vw; */
 }
 
-/* ==Test CSS== */
+/* ==Homepage== */
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
@@ -236,10 +236,10 @@ body {
 
 @media (max-width: 991px) {
 
-    .showcase,
+    /* .showcase,
     .showcase header {
         padding: 40px;
-    }
+    } */
 
     .homepage-text h2 {
         font-size: 3em;
@@ -250,10 +250,6 @@ body {
     }
 }
 
-
-
-
-/* ==Homepage Begin== */
 .video-container {
     /* position: absolute;
     top: -0%;
