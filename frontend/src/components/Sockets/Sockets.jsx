@@ -40,9 +40,11 @@ function SocketIo() {
 
     return (
         <div>
-            {newMessage.map((data, i) => <p key={i}>{data}</p>)}
+            <div style={{ width: '350px', border: 'solid', height: '500px', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>
+                {newMessage.map((data, i) => <p key={i}>{data}</p>)}
+            </div>
             <ChatWindow setMessage={setMessage} sendMessage={sendMessage} message={message} />
-        </div>
+        </div >
     );
 }
 
