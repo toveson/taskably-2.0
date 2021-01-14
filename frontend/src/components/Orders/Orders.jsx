@@ -159,13 +159,13 @@ class Orders extends Component {
                                                     </td>
                                                     <td>{orderData.products}</td>
                                                     <td>{orderData.status}</td>
-                                                    <td>{orderData.reason}</td>
+                                                    <td className={orderData.color}>{orderData.reason}</td>
                                                     <td>{orderData.appt_date}</td>
                                                     <td>{orderData.appt_time}</td>
                                                     <td>{orderData.customer}</td>
                                                     <td>{orderData.cust_phone}</td>
                                                     {/* <td>{orderData.address}</td> */}
-                                                    <td>{orderData.city}</td>
+                                                    < td > {orderData.city}</td>
                                                     <td>{orderData.state}</td>
                                                 </tr>
                                             ))
