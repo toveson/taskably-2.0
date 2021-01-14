@@ -16,12 +16,43 @@ const routes = require('./routes/index.js');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const technicians = {};
+let technicianIndex = 0;
+
 io.on('connection', function (socket) {
     console.log('New User Connected');
 
+    //grab the username from the frondend
+    socket.on('socket-username', function (username) {
+        socket.username = username;
+        console.log(socket.role);
+    });
+
+    // grab the role from the front end
+    socket.on('socket-role', function (role) {
+        socket.role = role;
+        //If user is a technician
+        if (socket.role === 'Technician') {
+            technicians[socket.id] = {
+                name: socket.username,
+                id: socket.id,
+                room: socket.id,
+                online: true
+            };
+        } else if (socket.role === 'Customer') {
+            let technicianId = Object.keys(technicians)[technicianIndex++ % Object.keys(technicians).length];
+            socket.join(technicianId);
+            socket.room = technicianId;
+        } else {
+            console.log('no one wants to chat');
+        }
+    });
+
+    // takes the message from the frontend and posts it
     socket.on('new-message', function (data) {
         console.log(data);
-        // socket.broadcast('post-message', data.message);
+
+        // post message to the room
         io.emit('post-message', data.message);
     });
 });
