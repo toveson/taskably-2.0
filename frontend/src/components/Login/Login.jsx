@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from '../Login/LoginForm';
 import Video1 from '../../assets/video/world-wire.mp4';
+import Logo from '../../assets/taskably.png';
 
 import '../../index.css';
 
@@ -9,28 +10,32 @@ class Login extends Component {
         return (
             <div>
                 <section>
-                    <header className='homepage-header'>
+                    {/* <header className='homepage-header'>
                         <div className='homepage-toggle'></div>
                         <h1 className='homepage-logo'>Taskably</h1>
-                    </header>
+                    </header> */}
 
-                    <div className="fullscreen-video-wrap video-container " >
-                        <video src={Video1} autoPlay="true" loop="true" muted > </video>
+                    <div className='fullscreen-video-wrap video-container ' >
+                        <video src={Video1} autoPlay='true' loop='true' muted > </video>
                     </div>
 
                     <div className='overlay'></div>
 
-                    <div className="hero-body">
-                        <div className="container has-text-centered homepage-text">
-                            <div className="column is-5 is-offset-6">
-                                {/* <img src={Logo} alt="Logo" height='50' className='column is 8 ' id='logo' /> */}
-                                <h2 className="title">
+                    <div className='hero-body'>
+                        <div className='container column is-7 is-offset-4' >
+                            <img className='container image' src={Logo} alt='taskably company logo' width='1100px'/>
+                        </div>
+
+                        <div className='container has-text-centered homepage-text'>
+                            <div className='column is-3-tablet is-5-desktop is-6-widescreen is-offset-6'>
+                                {/* <img src={Logo} alt='Logo' height='50' className='column is 8 ' id='logo' /> */}
+                                <h2 className='title'>
                                     YOUR WAY
                                 </h2>
-                                <h3 className="subtitle">
+                                <h3 className='subtitle'>
                                     of doing things.
                                 </h3>
-                                {/* <a className="button is-info " href='contact'>
+                                {/* <a className='button is-info ' href='contact'>
                                 Contact Me
                             </a> */}
                             </div>
@@ -38,7 +43,7 @@ class Login extends Component {
                     </div>
 
                     <div className='container login-container'>
-                        <div className='column is-4 is-offset-7 is-right'>
+                        <div className='column is-5-tablet is-6-widescreen is-6-desktop is-offset-6 '>
                             <LoginForm />
                         </div>
                     </div>
