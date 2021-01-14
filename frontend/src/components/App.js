@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-// import API from '../util/api.js';
+import API from '../util/api.js';
 
 // Route components
 import Login from './Login/Login';
@@ -22,9 +22,9 @@ class App extends Component {
     render() {
         // console.log('this.props: ', this.props);
 
-        // API.getStatsWO().then(response => {
-        //     console.log('response:', response);
-        // });
+        API.getUserJWT().then(response => {
+            console.log('response:', response);
+        });
 
         return (
             <>

@@ -1,11 +1,25 @@
-// check JWT
-// if the token is good you use the role to authorize a page
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-function userGood(req, res, next) {
+// // check JWT
+// // if the token is good you use the role to authorize a page
+
+function authenticateToken(req, res, next) {
     // checking JWT
-    next();
-    // user not auth send if token checked is wrong
-    res.send(401);
+
+    const token = req.headers.authorization || null;
+    // const token = authHeader && authHeader.split(' ')[1];
+    if (!token) {
+        return res.sendStatus(401);
+    }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, userJWT) => {
+        if (err) {
+            return res.sendStatus(403);
+        }
+        req.user = userJWT;
+        return next();
+    });
 }
 
-module.exports = { userGood };
+module.exports = { authenticateToken };

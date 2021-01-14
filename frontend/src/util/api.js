@@ -24,6 +24,7 @@ const api = {
     , getStates: () => axios.get('./api/lookup/state')
 
     , getUsers: () => axios.get('./api/users')
+    , getUserJWT: () => axios.get('./api/login.js')
 
 };
 
