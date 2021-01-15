@@ -24,13 +24,12 @@ io.on('connection', function (socket) {
 
     //grab the username from the frondend
     socket.on('socket-username', function (username) {
-        socket.username = username;
-        console.log(socket.role);
+        socket.username = username.username;
     });
 
     // grab the role from the front end
     socket.on('socket-role', function (role) {
-        socket.role = role;
+        socket.role = role.role;
         //If user is a technician
         if (socket.role === 'Technician') {
             technicians[socket.id] = {
@@ -39,10 +38,14 @@ io.on('connection', function (socket) {
                 room: socket.id,
                 online: true
             };
+            socket.room = socket.id;
+            console.log(technicians);
+            //If they are customer they join the technicians room
         } else if (socket.role === 'Customer') {
             let technicianId = Object.keys(technicians)[technicianIndex++ % Object.keys(technicians).length];
             socket.join(technicianId);
             socket.room = technicianId;
+            //if none of those they stay in their own room
         } else {
             console.log('no one wants to chat');
         }
@@ -51,9 +54,12 @@ io.on('connection', function (socket) {
     // takes the message from the frontend and posts it
     socket.on('new-message', function (data) {
         console.log(data);
+        console.log(socket.room);
+        console.log('supposed to be the username', socket.username);
 
         // post message to the room
-        io.emit('post-message', data.message);
+        // eslint-disable-next-line
+        io.to(socket.room).emit('post-message', socket.username + ":  " + data.message);
     });
 });
 
