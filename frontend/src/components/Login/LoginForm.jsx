@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
 // import Logo from './../../assets/taskably.png';
 import api from '../../util/api';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -15,10 +17,18 @@ class LoginForm extends Component {
         e.preventDefault();
         console.log(this.state);
         api.userLogin(this.state)
-            .then(res => localStorage.setItem('JWT', res.data.accessToken) );
+            .then(res => {
+                localStorage.setItem('JWT', res.data.accessToken);
+                this.props.getJWT;
+                this.setState({redirect: res.data.role === 'Customer' ? '/customer-portal' : '/dashboard'});
+            });
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to = {this.state.redirect} />;
+        }
+
         return (
             <div>
                 <form className='box' id='login-form'>
@@ -31,7 +41,7 @@ class LoginForm extends Component {
                         <div className='control has-icons-left'>
                             <input className='input' type='email' placeholder='example@email.com' required
                                 value={this.state.email}
-                                onChange={ (e) => this.setState({email: e.target.value})} />
+                                onChange={(e) => this.setState({ email: e.target.value })} />
                             <span className='icon is-small is-left'>
                                 <i className='fa fa-envelope'></i>
                             </span>
@@ -42,8 +52,8 @@ class LoginForm extends Component {
                         <label className='label ' id='login-form'>Password</label>
                         <div className='control has-icons-left'>
                             <input className='input' type='password' placeholder='*********' required
-                                value={this.state.password }
-                                onChange={ (e) => this.setState({password: e.target.value})}
+                                value={this.state.password}
+                                onChange={(e) => this.setState({ password: e.target.value })}
                             />
                             <span className='icon is-small is-left'>
                                 <i className='fa fa-lock'></i>
@@ -68,5 +78,9 @@ class LoginForm extends Component {
         );
     }
 }
+
+LoginForm.propTypes ={
+    getJWT: PropTypes.any
+};
 
 export default LoginForm;
