@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Video2 from '../../assets/video/technician.mp4';
+import Logo from '../../assets/taskably.png';
 
 import '../../index.css';
 class CustomerPortal extends Component {
@@ -15,6 +16,9 @@ class CustomerPortal extends Component {
                     <video src={Video2} autoPlay='true' loop='true' muted > </video>
                 </div>
                 <div className='hero-body'>
+                    <div className='container column is-7 is-offset-5' >
+                        <img className='container image' src={Logo} alt='taskably company logo' width='1100px' />
+                    </div>
                     <div className='container' >
                         <div className='columns is-centered'>
                             <div className='column is-4-tablet is-4-desktop is-4-widescreen is-offset-7' id='portal'>
