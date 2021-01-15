@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
                 // compare password (bcrypt)
                 // sign jws token with (username, role, email) and send it back
                 const accessToken = jwt.sign(userJWT, process.env.ACCESS_TOKEN_SECRET);
-                res.json({accessToken: accessToken});
+                res.json({accessToken: accessToken, role: user.role, username: user.username});
                 // res.send('Success');
             } else {
                 // if password is wrong return login failed
