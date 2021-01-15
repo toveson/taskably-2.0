@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LoginForm from '../Login/LoginForm';
 import Video1 from '../../assets/video/world-wire.mp4';
 import Logo from '../../assets/taskably.png';
+import PropTypes from 'prop-types';
 
 import '../../index.css';
 
@@ -75,5 +76,8 @@ class Login extends Component {
     }
 }
 
+LoginForm.propTypes ={
+    getJWT: PropTypes.any
+};
 // export default Homepage;
 export default Login;
