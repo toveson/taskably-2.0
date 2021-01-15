@@ -18,10 +18,21 @@ import NewWO from './New-WorkOrder/NewWorkOrder';
 
 
 class App extends Component {
-    componentDidMount() {
+
+    state = {
+        user: undefined
+    }
+
+
+    // how do I use this to check to see if they can go to the page?? Can I use the role with it (so customers can only log into the customer portal and everyone else can go where they need to)
+    getJWT = () => {
         API.getUserJWT(localStorage.getItem('JWT')).then(response => {
             console.log('response:', response);
+            this.setState({ user: response.data });
         });
+    }
+    componentDidMount() {
+        this.getJWT();
     }
 
     render() {
@@ -33,22 +44,24 @@ class App extends Component {
 
             <BrowserRouter>
                 <div>
-                    <Route exact path='/' component={Login} />
-                    <Route path='/customer-portal' component={CustomerPortal} />
-                    <Route path='/dashboard' component={Dashboard} />
-                    <Route path='/inventory' component={Inventory} />
-                    <Route path='/customers' component={Customers} />
-                    <Route path='/new-customer' component={NewCustomer} />
-                    <Route path='/techs' component={Techs} />
-                    <Route path='/new-tech' component={NewTech} />
-                    <Route path='/orders' component={Orders} />
-                    <Route path='/new-workorder' component={NewWO} />
+                    <Route exact path='/' render={() => <Login getJWT={this.getJWT} />} />
+                    {
+                        this.state.user && (this.state.user.role === 'Customer' ?
+                            <Route path='/customer-portal' component={CustomerPortal} />
+                            :
+                            <>
+                                <Route path='/dashboard' component={Dashboard} />
+                                <Route path='/inventory' component={Inventory} />
+                                <Route path='/customers' component={Customers} />
+                                <Route path='/new-customer' component={NewCustomer} />
+                                <Route path='/techs' component={Techs} />
+                                <Route path='/new-tech' component={NewTech} />
+                                <Route path='/orders' component={Orders} />
+                                <Route path='/new-workorder' component={NewWO} />
+                            </>)
+                    }
                 </div>
             </BrowserRouter>
-
-        // token inside ()
-        // after route
-        // , getUserJWT: (token) => axios.get('/api/login', {headers: { authorization: localStorage.getItem('JWT'); }})
 
         );
     }
