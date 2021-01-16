@@ -25,10 +25,12 @@ class CustomerPortal extends Component {
                     <div className='container' >
                         <div className='columns is-centered'>
                             <div className='column is-4-tablet is-4-desktop is-4-widescreen is-offset-7' id='portal'>
-                                Customer Portal
+                                <h2 id='Customer-Portal-Heading'><u>Customer Portal</u></h2>
                                 <div>Thank you for choosing Taskably! </div>
                                 <br />
-                                <div> Your Appointment is:</div>
+                                <div> Your Appointment is on:</div>
+                                <strong>10/31/20 at 2:30 PM</strong>
+                                <br />
                                 <br />
                                 <div> Chat with one of our representatives below: </div>
 

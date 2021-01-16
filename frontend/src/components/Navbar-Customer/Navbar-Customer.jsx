@@ -34,7 +34,7 @@ class NavbarCustomer extends Component {
                             <div className='navbar-link'>
                                 {/* <!-- User name --> */}
                                 {/* {{!-- Username/Email needs to pull --}} */}
-                                user
+                                <strong id='customer-portal-hello'>Hello</strong> <strong id='customer-portal-name'><u>  Baxy</u></strong>
                             </div>
                             <div className='navbar-dropdown is-right'>
                                 <a className="navbar-item" href="/">

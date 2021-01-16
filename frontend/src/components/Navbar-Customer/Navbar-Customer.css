@@ -23,5 +23,15 @@ hero.is-success .navbar-dropdown {
 
 
 .hero.is-success .navbar-link {
-    color:rgb(75, 172, 43);
+    color:rgb(241, 44, 44);
+}
+
+#customer-portal-name {
+    color: rgb(75, 172, 43);
+    padding-left: 5px;
+    font-style: italic;
+}
+
+#customer-portal-hello {
+    color:rgb(44, 152, 241);
 }
