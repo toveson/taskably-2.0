@@ -137,13 +137,9 @@ class Customers extends Component {
                                         </tbody>
                                     </table>
 
-                                    {/* <nav className='pagination is-rounded' role='navigation' aria-label='pagination'> */}
-                                    {/* <a className='pagination-previous' id='page-nav'>Previous</a>
-                                        <a className='pagination-next' id='page-nav'>Next</a> */}
                                     <ul className='pagination-list is-rounded' id='page-numbers'>
                                         {renderPageNumbers}
                                     </ul>
-                                    {/* </nav> */}
                                 </div >
                             </div >
                         </div >

@@ -99,14 +99,14 @@ class Orders extends Component {
                                 </div>
                             </nav>
 
-                            <div className="table-container">
-                                <table className="table is-hoverable is-fullwidth">
+                            <div className="table-container " id='table-container'>
+                                <table className="table is-hoverable is-fullwidth " id='table-container-table' >
                                     <thead className='theader'>
                                         <tr>
                                             <th>Order #</th>
                                             <th>Region</th>
                                             <th>Technician</th>
-                                            <th>Email</th>
+                                            {/* <th>Email</th> */}
                                             <th>Phone</th>
                                             <th>Products</th>
                                             <th>Status</th>
@@ -114,10 +114,10 @@ class Orders extends Component {
                                             <th>Appt. Date</th>
                                             <th>Appt. Time</th>
                                             <th>Customer</th>
-                                            <th>Cust. Phone</th>
+                                            {/* <th>Cust. Phone</th> */}
                                             {/* <th>Address</th> */}
-                                            <th>City</th>
-                                            <th>State</th>
+                                            {/* <th>City</th> */}
+                                            {/* <th>State</th> */}
                                         </tr>
                                     </thead>
                                     <tfoot className='tfooter'>
@@ -125,7 +125,7 @@ class Orders extends Component {
                                             <th>Order #</th>
                                             <th>Region</th>
                                             <th>Technician</th>
-                                            <th>Email</th>
+                                            {/* <th>Email</th> */}
                                             <th>Phone</th>
                                             <th>Products</th>
                                             <th>Status</th>
@@ -133,10 +133,10 @@ class Orders extends Component {
                                             <th>Appt. Date</th>
                                             <th>Appt. Time</th>
                                             <th>Customer</th>
-                                            <th>Cust. Phone</th>
+                                            {/* <th>Cust. Phone</th> */}
                                             {/* <th>Address</th> */}
-                                            <th>City</th>
-                                            <th>State</th>
+                                            {/* <th>City</th> */}
+                                            {/* <th>State</th> */}
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -151,11 +151,11 @@ class Orders extends Component {
                                                     </td>
                                                     <td><p>{orderData.region}</p></td>
                                                     <td>{orderData.tech}</td>
-                                                    <td><code>{orderData.email}</code></td>
+                                                    {/* <td><code>{orderData.email}</code></td> */}
                                                     <td>
-                                                        <div className="button">
-                                                            {orderData.tech_phone}
-                                                        </div>
+                                                        {/* <div className="button"> */}
+                                                        {orderData.tech_phone}
+                                                        {/* </div> */}
                                                     </td>
                                                     <td>{orderData.products}</td>
                                                     <td>{orderData.status}</td>
@@ -163,21 +163,21 @@ class Orders extends Component {
                                                     <td>{orderData.appt_date}</td>
                                                     <td>{orderData.appt_time}</td>
                                                     <td>{orderData.customer}</td>
-                                                    <td>{orderData.cust_phone}</td>
+                                                    {/* <td>{orderData.cust_phone}</td> */}
                                                     {/* <td>{orderData.address}</td> */}
-                                                    < td > {orderData.city}</td>
-                                                    <td>{orderData.state}</td>
+                                                    {/* < td > {orderData.city}</td> */}
+                                                    {/* <td>{orderData.state}</td> */}
                                                 </tr>
                                             ))
                                         }
                                     </tbody>
                                 </table>
+                            </div>
 
-                                <div>
-                                    <ul className='pagination-list is-rounded' id='page-numbers'>
-                                        {renderPageNumbers}
-                                    </ul>
-                                </div>
+                            <div>
+                                <ul className='pagination-list is-rounded' id='page-numbers'>
+                                    {renderPageNumbers}
+                                </ul>
                             </div>
                         </div >
                     </div>
