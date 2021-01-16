@@ -23,17 +23,21 @@ class Login extends Component {
                     <div className='overlay'></div>
 
                     <div className='hero-body'>
-                        <div className='container column is-7 is-offset-4' >
-                            <img className='container image' src={Logo} alt='taskably company logo' width='1100px'/>
+                        <div className='logo-container' >
+                            {/* <div className='container column is-7 is-offset-4' > */}
+                            <img className='container image' src={Logo} alt='taskably company logo' width='1100px' />
+                            {/* <img className='container image' src={Logo} alt='taskably company logo' width='1100px' /> */}
                         </div>
 
-                        <div className='container has-text-centered homepage-text'>
-                            <div className='column is-3-tablet is-5-desktop is-6-widescreen is-offset-6'>
+                        <div className='homepage-text'>
+                            {/* <div className='container has-text-centered homepage-text'> */}
+                            <div className='homepage-subtitle'>
+                                {/* <div className='column is-3-tablet is-5-desktop is-6-widescreen is-offset-6'> */}
                                 {/* <img src={Logo} alt='Logo' height='50' className='column is 8 ' id='logo' /> */}
                                 <h2 className='title'>
                                     YOUR WAY
                                 </h2>
-                                <h3 className='subtitle'>
+                                <h3 className='homepage-subtitle-subtitle'>
                                     of doing things.
                                 </h3>
                                 {/* <a className='button is-info ' href='contact'>
@@ -41,13 +45,14 @@ class Login extends Component {
                             </a> */}
                             </div>
                         </div>
-                    </div>
-
-                    <div className='container login-container'>
-                        <div className='column is-5-tablet is-6-widescreen is-6-desktop is-offset-6 '>
-                            <LoginForm />
+                        <div className='login-container'>
+                            <div className='login-form-container'>
+                                {/* <div className='column is-5-tablet is-6-widescreen is-5-desktop is-offset-6 '> */}
+                                <LoginForm />
+                            </div>
                         </div>
                     </div>
+
 
                     {/* <div className='homepage-text is-transparent'>
                         <h2>Your Way</h2>
@@ -76,7 +81,7 @@ class Login extends Component {
     }
 }
 
-LoginForm.propTypes ={
+LoginForm.propTypes = {
     getJWT: PropTypes.any
 };
 // export default Homepage;
