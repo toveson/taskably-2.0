@@ -20,7 +20,7 @@ router.post('/newuser', (req, res) => {
             p_role
         };
 
-        let sql = 'call newUser(?,?,?,?)';
+        let sql = 'call newUser(@user_id,?,?,?,?); select concat(\'user \', @user_id,\' added successfuly\') as new_user';
         db.query(sql, [user.p_username, user.p_email, user.p_password, user.p_role],
             (err, rows) => {
                 if (err) {

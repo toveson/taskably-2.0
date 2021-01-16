@@ -2,28 +2,31 @@ import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import CheckmarkLogo from '../../assets/checkmark-logo.png';
+import PropTypes from 'prop-types';
 import API from '../../util/api';
 import Select from 'react-dropdown-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { addDays, setHours } from 'date-fns';
 
-class NewWO extends Component {
+class UpdateWO extends Component {
     constructor(props) {
         super(props);
+        console.log('props: ', props);
         this.state = {
-            p_pr_cd: ''
-            , p_rsn_cd: ''
-            , p_cust_id: ''
-            , p_sta_cd: ''
-            , p_tech_id: ''
-            , p_appt: null
+            woid: props.WO.woid
+            , p_pr_cd: props.WO.pr_cd
+            , p_rsn_cd: props.WO.rsn_cd
+            , p_cust_id: props.WO.cust_id
+            , p_sta_cd: props.WO.sta_cd
+            , p_tech_id: props.WO.tech_id
+            , p_appt: new Date(props.WO.appointment)
             , success: false
-            , products: []
-            , reason: []
-            , customers: []
-            , status: []
-            , tech: []
+            , products: null
+            , reason: null
+            , customers: null
+            , status: null
+            , tech: null
             , cust_region: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -72,17 +75,9 @@ class NewWO extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        API.postNewWO(this.state).then(() => {
+        API.updateWO(this.state).then(() => {
             this.setState({ success: true });
-        });
-        this.setState({
-            p_pr_cd: ''
-            , p_rsn_cd: ''
-            , p_cust_id: ''
-            , p_sta_cd: ''
-            , p_tech_id: ''
-            , p_appt: new Date()
-            , success: false
+            this.props.resetWO();
         });
     }
 
@@ -97,6 +92,15 @@ class NewWO extends Component {
 
     render() {
         console.log('State: ', this.state);
+        if (
+            !this.state.products
+            || !this.state.reason
+            || !this.state.customers
+            || !this.state.status
+            || !this.state.tech
+        ) {
+            return <></>;
+        }
         return (
             <div>
                 <Navbar />
@@ -113,7 +117,7 @@ class NewWO extends Component {
                                                 <form className='box login' id='new-customer'>
                                                     <div className='field has-text-centered'>
                                                         <img src={CheckmarkLogo} alt='taskably company logo' width='30' /><span
-                                                            className='text has-text-weight-bold is-size-3 has-text-justified'>Create New Work Order</span>
+                                                            className='text has-text-weight-bold is-size-3 has-text-justified'>Work Order Detail</span>
                                                         <h2>
                                                         </h2>
 
@@ -132,7 +136,7 @@ class NewWO extends Component {
                                                                 }}
                                                                 dropdownPosition="auto"
                                                                 name='p_pr_cd'
-                                                                value={this.state.p_pr_cd}
+                                                                values={[this.state.products.find(name => name.pr_cd === this.state.p_pr_cd)]}
                                                                 searchable='true'
                                                                 className='input' required
                                                             />
@@ -155,7 +159,7 @@ class NewWO extends Component {
                                                                 }}
                                                                 dropdownPosition="auto"
                                                                 name='p_rsn_cd'
-                                                                value={this.state.p_rsn_cd}
+                                                                values={[this.state.reason.find(name => name.rsn_cd === this.state.p_rsn_cd)]}
                                                                 searchable='true'
                                                                 className='input' required
                                                             />
@@ -178,7 +182,7 @@ class NewWO extends Component {
                                                                 }}
                                                                 dropdownPosition="auto"
                                                                 name='p_cust_id'
-                                                                value={this.state.p_cust_id}
+                                                                values={[this.state.customers.find(name => name.cust_id === this.state.p_cust_id)]}
                                                                 searchable='true'
                                                                 className='input' required
                                                             />
@@ -201,7 +205,7 @@ class NewWO extends Component {
                                                                 }}
                                                                 dropdownPosition="auto"
                                                                 name='p_sta_cd'
-                                                                value={this.state.p_sta_cd}
+                                                                values={[this.state.status.find(name => name.sta_cd === this.state.p_sta_cd)]}
                                                                 searchable='true'
                                                                 className='input'
                                                             />
@@ -228,7 +232,7 @@ class NewWO extends Component {
                                                                 }}
                                                                 dropdownPosition="auto"
                                                                 name='p_tech_id'
-                                                                value={this.state.p_tech_id}
+                                                                values={[this.state.tech.find(name => name.tech_id === this.state.p_tech_id)]}
                                                                 searchable='true'
                                                                 className='input'
                                                             />
@@ -284,7 +288,7 @@ class NewWO extends Component {
                                                                     </div>
                                                                 </div>
                                                                 <button className='modal-close is-large' aria-label='close'
-                                                                    onClick={() => this.setState({ success: false })}></button>
+                                                                    onClick={this.props.resetWO}></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -302,4 +306,6 @@ class NewWO extends Component {
     }
 }
 
-export default NewWO;
+UpdateWO.propTypes = { resetWO: PropTypes.any, WO: PropTypes.any };
+
+export default UpdateWO;

@@ -16,6 +16,7 @@ const api = {
 
     , getWorkorders: () => axios.get('./api/workorders/')
     , postNewWO: (data) => axios.post('./api/workorders/new-wo', data)
+    , updateWO: (data) => axios.put('./api/workorders/upd-wo/:' + data.woid, data)
 
     , getRegion: () => axios.get('./api/lookup/region')
     , getProducts: () => axios.get('./api/lookup/products')
