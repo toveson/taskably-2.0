@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import API from '../../util/api.js';
+import UpdateWorkOrder from '../Update-WO/UpdateWorkOrder';
 
 class Orders extends Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class Orders extends Component {
             orderData: [],
             currentPage: 1,
             ordersPerPage: 15,
-            stats: []
+            stats: [],
+            woToUpdate: false
 
         };
         this.handleClick = this.handleClick.bind(this);
@@ -99,8 +101,16 @@ class Orders extends Component {
                                 </div>
                             </nav>
 
+
+                            {this.state.woToUpdate &&
+                                < UpdateWorkOrder
+                                    WO={this.state.woToUpdate}
+                                    resetWO={() => this.setState({ woToUpdate: false })}
+                                />}
+
                             <div className="table-container " id='table-container'>
                                 <table className="table is-hoverable is-fullwidth " id='table-container-table' >
+
                                     <thead className='theader'>
                                         <tr>
                                             <th>Order #</th>
@@ -144,7 +154,11 @@ class Orders extends Component {
                                         {
                                             this.state.orderData.slice(indexOfFirstOrder, indexOfLastOrder).map((orderData, index) => (
                                                 <tr key={index} value={this.state.value}>
-                                                    <td>
+                                                    <td
+                                                    // key={orderData.woid}
+                                                    // className="is-clickable" href="new-tech"
+                                                    // onClick={() => this.setState({ woToUpdate: orderData })}
+                                                    >
                                                         <strong>
                                                             {orderData.woid}
                                                         </strong>
