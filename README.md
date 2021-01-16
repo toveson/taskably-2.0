@@ -28,23 +28,23 @@ user: email:
 
 ### Client-Side
 
-*Bulma ● React.js ● Axios ● React Router Dom*
+*[Bulma](#https://bulma.io/) ● [React.js](#https://reactjs.org/) ● [Axios](#https://github.com/axios/axios) ● [React Router Dom](#https://reactrouter.com/web/guides/quick-start)*
 
 ### Authentication/Security
 
-*Bcrypt ● Dotenv ● CORS ● JSONWebToken*
+*[Bcrypt](#https://github.com/kelektiv/node.bcrypt.js#readme) ● [Dotenv](#https://github.com/motdotla/dotenv#readme) ● [CORS](#https://github.com/expressjs/cors#readme) ● [JSONWebToken](#https://github.com/auth0/node-jsonwebtoken#readme)*
 
 ### Server
 
-*Express ● Socket.io ● Concurrently ● Nodemon ● Path*
+*[Express](#http://expressjs.com/) ● [Socket.io](#https://github.com/socketio/socket.io#readme) ● [Concurrently](#https://github.com/kimmobrunfeldt/concurrently#readme) ● [Nodemon](#https://www.npmjs.com/package/nodemon) ● [Path](#https://www.npmjs.com/package/path)*
 
 ### Database
 
-*mySQL ● mySQL2 ● Views/Stored Procedures ● JAWSDB*
+*[mySQL](#https://www.npmjs.com/package/mysql) ● [mySQL2](#https://github.com/sidorares/node-mysql2#readme) ● [Views/Stored Procedures](#https://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx) ● [JAWSDB](#https://elements.heroku.com/addons/jawsdb)*
 
 ### Additional Technologies
 
-*Eslint ● Date-fns ● Lodash ● Prop-types ● React Datepicker ● React Dropdown Select ● Mockaroo*
+*[Eslint](#https://eslint.org/) ● [Date-fns](#https://github.com/date-fns/date-fns#readme) ● [Lodash](3https://lodash.com/) ● [Prop-types](#https://www.npmjs.com/package/prop-types) ● [React Datepicker](#https://github.com/Hacker0x01/react-datepicker) ● [React Dropdown Select](#https://github.com/sanusart/react-dropdown-select#readme) ● [Mockaroo](#https://www.mockaroo.com/)*
 
 ## License
 
