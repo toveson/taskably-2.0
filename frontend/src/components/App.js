@@ -60,6 +60,7 @@ class App extends Component {
                                 <Route path='/new-tech' component={NewTech} />
                                 <Route path='/orders' component={Orders} />
                                 <Route path='/new-workorder' component={NewWO} />
+                                <Route path='/update-workorder/:id' component={UpdateWO} />
                             </>)
                     }
 
