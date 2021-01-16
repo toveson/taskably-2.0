@@ -5,7 +5,7 @@ const path = require('path');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: '/',
         methods: ['GET', 'POST']
     }
 });
@@ -59,11 +59,9 @@ io.on('connection', function (socket) {
 
     // takes the message from the frontend and posts it
     socket.on('new-message', function (data) {
-        //log of the message
         console.log(data);
-
-        //log to make sure they are in the same room
-        console.log('Room: ', socket.room);
+        //log to make sure
+        console.log(socket.room);
 
 
         // post message to the room
