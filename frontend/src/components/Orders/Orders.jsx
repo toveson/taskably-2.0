@@ -101,21 +101,23 @@ class Orders extends Component {
                                 </div>
                             </nav>
 
+
                             {this.state.woToUpdate &&
                                 < UpdateWorkOrder
                                     WO={this.state.woToUpdate}
                                     resetWO={() => this.setState({ woToUpdate: false })}
                                 />}
 
-                            <div className="table-container">
-                                <table className="table is-hoverable is-fullwidth">
+                            <div className="table-container " id='table-container'>
+                                <table className="table is-hoverable is-fullwidth " id='table-container-table' >
+
                                     <thead className='theader'>
                                         <tr>
                                             <th>Order #</th>
                                             <th>Region</th>
                                             <th>Technician</th>
                                             {/* <th>Email</th> */}
-                                            {/* <th>Phone</th> */}
+                                            <th>Phone</th>
                                             <th>Products</th>
                                             <th>Status</th>
                                             <th>Reason</th>
@@ -134,7 +136,7 @@ class Orders extends Component {
                                             <th>Region</th>
                                             <th>Technician</th>
                                             {/* <th>Email</th> */}
-                                            {/* <th>Phone</th> */}
+                                            <th>Phone</th>
                                             <th>Products</th>
                                             <th>Status</th>
                                             <th>Reason</th>
@@ -164,11 +166,11 @@ class Orders extends Component {
                                                     <td><p>{orderData.region}</p></td>
                                                     <td>{orderData.tech}</td>
                                                     {/* <td><code>{orderData.email}</code></td> */}
-                                                    {/* <td>
-                                                        <div className="button">
-                                                            {orderData.tech_phone}
-                                                        </div>
-                                                    </td> */}
+                                                    <td>
+                                                        {/* <div className="button"> */}
+                                                        {orderData.tech_phone}
+                                                        {/* </div> */}
+                                                    </td>
                                                     <td>{orderData.products}</td>
                                                     <td>{orderData.status}</td>
                                                     <td className={orderData.color}>{orderData.reason}</td>
@@ -184,12 +186,12 @@ class Orders extends Component {
                                         }
                                     </tbody>
                                 </table>
+                            </div>
 
-                                <div>
-                                    <ul className='pagination-list is-rounded' id='page-numbers'>
-                                        {renderPageNumbers}
-                                    </ul>
-                                </div>
+                            <div>
+                                <ul className='pagination-list is-rounded' id='page-numbers'>
+                                    {renderPageNumbers}
+                                </ul>
                             </div>
                         </div >
                     </div>

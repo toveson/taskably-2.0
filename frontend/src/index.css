@@ -498,5 +498,21 @@ body {
     background-image: linear-gradient(to bottom, #030303 0%, #a3a0a0 25%);
 }
 
+@media (max-width: 1215px) {
+#table-container{
+    overflow-x: auto;
+    max-width: 83%;
+    transform:rotateX(180deg)
+}
+
+#table-container-table {
+    overflow-x: auto;
+    max-width: 83%;
+    transform:rotateX(180deg)
+}
+}
+
+
 /* ==Table Ends== */
+
 

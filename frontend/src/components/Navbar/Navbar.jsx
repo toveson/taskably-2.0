@@ -57,7 +57,7 @@ class Navbar extends Component {
                                 Inventory
                                     </div>
                                 </a>
-                                <a className="navbar-item" href="logout">
+                                <a className="navbar-item" href='/'>
                                     <div>
                                         <span className="icon is-small">
                                             <i className="fa fa-sign-out"></i>
