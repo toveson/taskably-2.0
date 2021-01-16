@@ -48,30 +48,30 @@ const Navbar = () => {
 
                         </div>
                         <div className='navbar-dropdown is-right'>
-                            <a className="navbar-item" href="new-customer" onClick={toggleBurgerMenu}>
+                            <Link className="navbar-item" to="new-customer" onClick={toggleBurgerMenu}>
                                 <div>
                                     <span className='icon is-small'>
                                         <i className="fas fa-user-edit"></i>
                                     </span>
                                 Create New Customer
                                 </div>
-                            </a>
-                            <a className="navbar-item" href="inventory" onClick={toggleBurgerMenu}>
+                            </Link>
+                            <Link className="navbar-item" to="inventory" onClick={toggleBurgerMenu}>
                                 <div>
                                     <span className="icon is small">
                                         <i className='fa fa-book'></i>
                                     </span>
                                 Inventory
                                 </div>
-                            </a>
-                            <a className="navbar-item" href='/' onClick={toggleBurgerMenu}>
+                            </Link>
+                            <Link className="navbar-item" to='/' onClick={toggleBurgerMenu}>
                                 <div>
                                     <span className="icon is-small">
                                         <i className="fa fa-sign-out"></i>
                                     </span>
                                 Sign Out
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
