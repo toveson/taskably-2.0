@@ -24,14 +24,16 @@ io.on('connection', function (socket) {
 
     //grab the username from the frondend
     socket.on('socket-username', function (username) {
-        socket.username = username.username;
+        socket.username = username;
     });
 
     // grab the role from the front end
     socket.on('socket-role', function (role) {
-        socket.role = role.role;
+        socket.role = role;
+        console.log('Username: ', socket.username);
+        console.log('Role: ', socket.role);
         //If user is a technician
-        if (socket.role === 'Technician') {
+        if (socket.role === 'Tech') {
             technicians[socket.id] = {
                 name: socket.username,
                 id: socket.id,
@@ -39,7 +41,6 @@ io.on('connection', function (socket) {
                 online: true
             };
             socket.room = socket.id;
-            console.log(technicians);
             //If they are customer they join the technicians room
         } else if (socket.role === 'Customer') {
             let technicianId = Object.keys(technicians)[technicianIndex++ % Object.keys(technicians).length];

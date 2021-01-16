@@ -11,6 +11,7 @@ import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import '../../index.css';
 import API from '../../util/api.js';
+import SocketIo from '../Sockets/Sockets';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -97,6 +98,9 @@ class Dashboard extends Component {
 
                                 <div className="column is-12-tablet is-6-desktop is-4-fullhd">
                                     <DashboardTechnicians />
+                                </div>
+                                <div>
+                                    <SocketIo></SocketIo>
                                 </div>
                             </div>
                         </div>

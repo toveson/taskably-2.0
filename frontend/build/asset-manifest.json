@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.d4d98378.chunk.css",
-    "main.js": "/static/js/main.a87df750.chunk.js",
-    "main.js.map": "/static/js/main.a87df750.chunk.js.map",
+    "main.css": "/static/css/main.48a05166.chunk.css",
+    "main.js": "/static/js/main.c3dcc8a6.chunk.js",
+    "main.js.map": "/static/js/main.c3dcc8a6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e269d942.js",
     "runtime-main.js.map": "/static/js/runtime-main.e269d942.js.map",
     "static/css/2.53a45186.chunk.css": "/static/css/2.53a45186.chunk.css",
-    "static/js/2.7d1cd5fa.chunk.js": "/static/js/2.7d1cd5fa.chunk.js",
-    "static/js/2.7d1cd5fa.chunk.js.map": "/static/js/2.7d1cd5fa.chunk.js.map",
+    "static/js/2.e4715617.chunk.js": "/static/js/2.e4715617.chunk.js",
+    "static/js/2.e4715617.chunk.js.map": "/static/js/2.e4715617.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.53a45186.chunk.css.map": "/static/css/2.53a45186.chunk.css.map",
-    "static/css/main.d4d98378.chunk.css.map": "/static/css/main.d4d98378.chunk.css.map",
-    "static/js/2.7d1cd5fa.chunk.js.LICENSE.txt": "/static/js/2.7d1cd5fa.chunk.js.LICENSE.txt",
+    "static/css/main.48a05166.chunk.css.map": "/static/css/main.48a05166.chunk.css.map",
+    "static/js/2.e4715617.chunk.js.LICENSE.txt": "/static/js/2.e4715617.chunk.js.LICENSE.txt",
     "static/media/checkmark-logo.4706c6c1.png": "/static/media/checkmark-logo.4706c6c1.png",
     "static/media/customers-icon.467d3a01.png": "/static/media/customers-icon.467d3a01.png",
     "static/media/dashboard-icon.cb03aa11.png": "/static/media/dashboard-icon.cb03aa11.png",
@@ -20,14 +20,15 @@
     "static/media/orby-logo.25b1ad6f.png": "/static/media/orby-logo.25b1ad6f.png",
     "static/media/orders-icon.78969782.png": "/static/media/orders-icon.78969782.png",
     "static/media/taskably.1e3014a1.png": "/static/media/taskably.1e3014a1.png",
+    "static/media/technician.88602417.mp4": "/static/media/technician.88602417.mp4",
     "static/media/techs-icon4.8a0ba503.png": "/static/media/techs-icon4.8a0ba503.png",
     "static/media/world-wire.4eb8810e.mp4": "/static/media/world-wire.4eb8810e.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.e269d942.js",
     "static/css/2.53a45186.chunk.css",
-    "static/js/2.7d1cd5fa.chunk.js",
-    "static/css/main.d4d98378.chunk.css",
-    "static/js/main.a87df750.chunk.js"
+    "static/js/2.e4715617.chunk.js",
+    "static/css/main.48a05166.chunk.css",
+    "static/js/main.c3dcc8a6.chunk.js"
   ]
 }
