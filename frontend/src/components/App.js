@@ -14,6 +14,7 @@ import NewCustomer from './New-Customer/NewCustomer';
 import NewTech from './New-Tech/NewTech';
 import CustomerPortal from './CustomerPortal/Customer-Portal';
 import NewWO from './New-WorkOrder/NewWorkOrder';
+import UpdateWO from './Update-WO/UpdateWorkOrder';
 
 
 
@@ -44,6 +45,7 @@ class App extends Component {
 
             <BrowserRouter>
                 <div>
+
                     <Route exact path='/' render={() => <Login getJWT={this.getJWT} />} />
                     {
                         this.state.user && (this.state.user.role === 'Customer' ?
@@ -60,6 +62,7 @@ class App extends Component {
                                 <Route path='/new-workorder' component={NewWO} />
                             </>)
                     }
+
                 </div>
             </BrowserRouter>
 

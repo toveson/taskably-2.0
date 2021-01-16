@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Menu from '../Menu/Menu';
 import Navbar from '../Navbar/Navbar';
 import API from '../../util/api.js';
+import UpdateWorkOrder from '../Update-WO/UpdateWorkOrder';
 
 class Orders extends Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class Orders extends Component {
             orderData: [],
             currentPage: 1,
             ordersPerPage: 15,
-            stats: []
+            stats: [],
+            woToUpdate: false
 
         };
         this.handleClick = this.handleClick.bind(this);
@@ -99,6 +101,12 @@ class Orders extends Component {
                                 </div>
                             </nav>
 
+                            {this.state.woToUpdate &&
+                                < UpdateWorkOrder
+                                    WO={this.state.woToUpdate}
+                                    resetWO={() => this.setState({ woToUpdate: false })}
+                                />}
+
                             <div className="table-container">
                                 <table className="table is-hoverable is-fullwidth">
                                     <thead className='theader'>
@@ -106,18 +114,18 @@ class Orders extends Component {
                                             <th>Order #</th>
                                             <th>Region</th>
                                             <th>Technician</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
+                                            {/* <th>Email</th> */}
+                                            {/* <th>Phone</th> */}
                                             <th>Products</th>
                                             <th>Status</th>
                                             <th>Reason</th>
                                             <th>Appt. Date</th>
                                             <th>Appt. Time</th>
                                             <th>Customer</th>
-                                            <th>Cust. Phone</th>
+                                            {/* <th>Cust. Phone</th> */}
                                             {/* <th>Address</th> */}
-                                            <th>City</th>
-                                            <th>State</th>
+                                            {/* <th>City</th> */}
+                                            {/* <th>State</th> */}
                                         </tr>
                                     </thead>
                                     <tfoot className='tfooter'>
@@ -125,18 +133,18 @@ class Orders extends Component {
                                             <th>Order #</th>
                                             <th>Region</th>
                                             <th>Technician</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
+                                            {/* <th>Email</th> */}
+                                            {/* <th>Phone</th> */}
                                             <th>Products</th>
                                             <th>Status</th>
                                             <th>Reason</th>
                                             <th>Appt. Date</th>
                                             <th>Appt. Time</th>
                                             <th>Customer</th>
-                                            <th>Cust. Phone</th>
+                                            {/* <th>Cust. Phone</th> */}
                                             {/* <th>Address</th> */}
-                                            <th>City</th>
-                                            <th>State</th>
+                                            {/* <th>City</th> */}
+                                            {/* <th>State</th> */}
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -144,29 +152,33 @@ class Orders extends Component {
                                         {
                                             this.state.orderData.slice(indexOfFirstOrder, indexOfLastOrder).map((orderData, index) => (
                                                 <tr key={index} value={this.state.value}>
-                                                    <td>
+                                                    <td
+                                                    // key={orderData.woid}
+                                                    // className="is-clickable" href="new-tech"
+                                                    // onClick={() => this.setState({ woToUpdate: orderData })}
+                                                    >
                                                         <strong>
                                                             {orderData.woid}
                                                         </strong>
                                                     </td>
                                                     <td><p>{orderData.region}</p></td>
                                                     <td>{orderData.tech}</td>
-                                                    <td><code>{orderData.email}</code></td>
-                                                    <td>
+                                                    {/* <td><code>{orderData.email}</code></td> */}
+                                                    {/* <td>
                                                         <div className="button">
                                                             {orderData.tech_phone}
                                                         </div>
-                                                    </td>
+                                                    </td> */}
                                                     <td>{orderData.products}</td>
                                                     <td>{orderData.status}</td>
                                                     <td className={orderData.color}>{orderData.reason}</td>
                                                     <td>{orderData.appt_date}</td>
                                                     <td>{orderData.appt_time}</td>
                                                     <td>{orderData.customer}</td>
-                                                    <td>{orderData.cust_phone}</td>
+                                                    {/* <td>{orderData.cust_phone}</td> */}
                                                     {/* <td>{orderData.address}</td> */}
-                                                    < td > {orderData.city}</td>
-                                                    <td>{orderData.state}</td>
+                                                    {/* < td > {orderData.city}</td> */}
+                                                    {/* <td>{orderData.state}</td> */}
                                                 </tr>
                                             ))
                                         }
