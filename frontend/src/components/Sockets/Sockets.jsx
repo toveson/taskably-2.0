@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ChatWindow from './Chatwindow';
 import SocketClient from 'socket.io-client';
 import API from '../../util/api';
+import '../../components/App.css';
 
 function SocketIo() {
 
@@ -56,7 +57,7 @@ function SocketIo() {
 
     return (
         <div>
-            <div style={{ width: '350px', border: 'solid', height: '500px', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>
+            <div className='chatwindow' style={{ width: '19em', border: 'solid', bordercolor: (96,187,4), height: '20em', whiteSpace: 'pre-wrap', overflowWrap: 'break-word'}}>
                 {newMessage.map((data, i) => <p key={i}>{data}</p>)}
             </div>
             <ChatWindow setMessage={setMessage} sendMessage={sendMessage} message={message} />
