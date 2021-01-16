@@ -35,3 +35,12 @@ hero.is-success .navbar-dropdown {
 #customer-portal-hello {
     color:rgb(44, 152, 241);
 }
+
+.hero.is-success .navbar-menu {
+    background-color: #4a4a4a;
+}
+
+.navbar-item .icon:only-child, .navbar-link .icon:only-child {
+    margin-left: -0.25rem;
+    margin-right: 0.75rem;
+}
