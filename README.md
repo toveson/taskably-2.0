@@ -9,8 +9,8 @@ A program to manage work orders, technicians, customers and inventory.
 
 Link to live site: [Taskably 2.0](https://arcane-sands-96523.herokuapp.com/)
 
-![Landing Page](frontend\src\assets\Taskably2_LandingPage.png)
-![Dashboard](frontend\src\assets\Screenshot.png) ![Mobile](frontend\src\assets\ScreenshotMobile.png)
+![Landing Page](https://github.com/ReddPhoenix/taskably-2.0/blob/main/frontend/src/assets/Taskably2_LandingPage.png)
+![Dashboard](https://github.com/ReddPhoenix/taskably-2.0/blob/main/frontend/src/assets/Screenshot.png) ![Mobile](https://github.com/ReddPhoenix/taskably-2.0/blob/main/frontend/src/assets/ScreenshotMobile.png)
 
 ## Table of Contents
 
