@@ -21,7 +21,7 @@ function SocketIo() {
 
     useEffect(() => {
         //create a new socket for each individual
-        let newSocket = SocketClient('http://localhost:8080');
+        let newSocket = SocketClient('/');
         newSocket.on('connect', function () {
 
             //grab messages from the backend
