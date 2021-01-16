@@ -4,6 +4,7 @@ import Logo from '../../assets/taskably.png';
 import NavbarCustomer from '../Navbar-Customer/Navbar-Customer';
 
 import '../../index.css';
+import SocketIo from '../Sockets/Sockets';
 class CustomerPortal extends Component {
 
 
@@ -32,6 +33,9 @@ class CustomerPortal extends Component {
                                 <div> To chat with one of our representatives click here: <strong>Chat</strong></div>
                                 <br />
                                 <div> Please click here to submit a Review</div>
+                                <div>
+                                    <SocketIo></SocketIo>
+                                </div>
                                 <div>
                                     {/* <Rating /> */}
 
