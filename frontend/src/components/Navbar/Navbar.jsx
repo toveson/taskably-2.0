@@ -1,5 +1,4 @@
 import React from 'react';
-// import React, { Component } from 'react';
 import taskablyLogo from '../../assets/taskably.png';
 import { Link } from 'react-router-dom';
 
@@ -7,8 +6,6 @@ const Navbar = () => {
     function toggleBurgerMenu() {
         document.querySelector('.navbar-menu').classList.toggle('is-active');
     }
-    // class Navbar extends Component {
-    //     render() {
     return (
 
         <nav className='navbar has-shadow is-fixed-top'>
@@ -39,12 +36,10 @@ const Navbar = () => {
                 </div>
 
                 <div className='navbar-end'>
-                    <div className='navbar-item has-dropdown is-hoverable'>
+                    <div className='navbar-item has-dropdown is-hoverable' id='navbar-item-dashboard'>
                         <div className='navbar-link'>
                             {/* <!-- User name --> */}
-                            {/* {{!-- Username/Email needs to pull --}} */}
-                            {/* {{ user }} */}
-                                user
+                                Trever
 
                         </div>
                         <div className='navbar-dropdown is-right'>
