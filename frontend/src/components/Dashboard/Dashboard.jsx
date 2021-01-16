@@ -100,7 +100,13 @@ class Dashboard extends Component {
                                     <DashboardTechnicians />
                                 </div>
                                 <div>
-                                    <SocketIo></SocketIo>
+                                    <div className="card">
+                                        <div className="card-content cardDashboard">
+                                            <h2 className=" title is-4"><u>Customer Chat</u>
+                                            </h2>
+                                            <SocketIo></SocketIo>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

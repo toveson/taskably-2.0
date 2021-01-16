@@ -30,16 +30,12 @@ class CustomerPortal extends Component {
                                 <br />
                                 <div> Your Appointment is:</div>
                                 <br />
-                                <div> To chat with one of our representatives click here: <strong>Chat</strong></div>
-                                <br />
-                                <div> Please click here to submit a Review</div>
+                                <div> Chat with one of our representatives below: </div>
+
                                 <div>
                                     <SocketIo></SocketIo>
                                 </div>
-                                <div>
-                                    {/* <Rating /> */}
 
-                                </div>
 
                             </div>
                         </div>
