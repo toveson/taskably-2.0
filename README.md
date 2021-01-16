@@ -22,7 +22,11 @@ Link to live site: [Taskably 2.0](https://arcane-sands-96523.herokuapp.com/)
 
 ## Usage
 
-user: email:
+### Demo Login Info
+
+**Customer Email:**  bfarrall1@booking.com **Password:** 123456
+
+**Technician Email:** tech@email.com **Password:** 123456
 
 ## Technologies
 
