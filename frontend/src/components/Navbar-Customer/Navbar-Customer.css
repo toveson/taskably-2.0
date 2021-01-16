@@ -16,8 +16,12 @@
     background-color: #2d3436;
 }
 
+hero.is-success .navbar-dropdown {
+    background-color: #2d3436;
+}
 
 
-hero.is-success .navbar-link {
-    color: chartreuse;
+
+.hero.is-success .navbar-link {
+    color:rgb(75, 172, 43);
 }
