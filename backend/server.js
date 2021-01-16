@@ -16,13 +16,59 @@ const routes = require('./routes/index.js');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const technicians = {};
+let technicianIndex = 0;
+
+// make initial connection with sockets
 io.on('connection', function (socket) {
     console.log('New User Connected');
 
+    //grab the username from the frondend
+    socket.on('socket-username', function (username) {
+        socket.username = username;
+        console.log('Username: ', socket.username);
+    });
+
+    // grab the role from the front end
+    socket.on('socket-role', function (role) {
+        socket.role = role;
+        console.log('Role: ', socket.role);
+
+        //If user is a technician
+        if (socket.role === 'Tech') {
+            technicians[socket.id] = {
+                name: socket.username,
+                id: socket.id,
+                room: socket.id,
+                online: true
+            };
+            //make sure technician is in their own room
+            socket.room = socket.id;
+
+            //If they are customer they join the technicians room
+        } else if (socket.role === 'Customer') {
+            let technicianId = Object.keys(technicians)[technicianIndex++ % Object.keys(technicians).length];
+            socket.join(technicianId);
+            socket.room = technicianId;
+
+            //if none of those they stay in their own room
+        } else {
+            console.log('Your role does not get to chat');
+        }
+    });
+
+    // takes the message from the frontend and posts it
     socket.on('new-message', function (data) {
+        //log of the message
         console.log(data);
-        // socket.broadcast('post-message', data.message);
-        io.emit('post-message', data.message);
+
+        //log to make sure they are in the same room
+        console.log('Room: ', socket.room);
+
+
+        // post message to the room
+        // eslint-disable-next-line
+        io.to(socket.room).emit('post-message', socket.username + ":  " + data.message);
     });
 });
 
