@@ -7,6 +7,13 @@ import PropTypes from 'prop-types';
 import '../../index.css';
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        };
+    }
     render() {
         return (
             <div>

@@ -22,8 +22,10 @@ function ChatWindow({ message, sendMessage, setMessage }) {
         <Container className="align-items-center d-flex">
             <Form className="w-100">
                 <Form.Group>
+
                     <Form.Control className='Chat-Input' placeholder=' Message ...' type="text" ref={messageRef} value={message} onChange={handleChange} style={{ width: '15em' }} />
                     <Button type="submit" className="mr-2 Chat-Input-Button" onClick={handleSubmit} style={{width: '50px'}}>Chat</Button>
+
                 </Form.Group>
             </Form>
         </Container>
