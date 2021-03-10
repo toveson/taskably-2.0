@@ -51,14 +51,16 @@ const Navbar = () => {
                                 Create New Customer
                                 </div>
                             </Link>
-                            <Link className="navbar-item" to="inventory" onClick={toggleBurgerMenu}>
+                            {/* Employee chatroom  */}
+                            <a className="navbar-item" href="https://slack-clone-a728f.web.app/" onClick={toggleBurgerMenu}>
                                 <div>
                                     <span className="icon is small">
                                         <i className='fa fa-book'></i>
                                     </span>
-                                Inventory
+                                Taskably Employee Chat
+
                                 </div>
-                            </Link>
+                            </a>
                             <Link className="navbar-item" to='/' onClick={toggleBurgerMenu}>
                                 <div>
                                     <span className="icon is-small">
