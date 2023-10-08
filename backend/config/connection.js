@@ -4,8 +4,8 @@ const mysql = require('mysql2');
 let db;
 
 // ***create mysql connection
-if (process.env.JAWSDB_URL) {
-    db = mysql.createConnection(process.env.JAWSDB_URL);
+if (process.env.MYSQL_URL) {
+    db = mysql.createConnection(process.env.MYSQL_URL);
 } else {
     db = mysql.createConnection({
         host: process.env.host,
